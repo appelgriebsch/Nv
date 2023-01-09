@@ -11,7 +11,7 @@ return {
         init = function()
           require("lazyvim.util").on_attach(function(_, buffer)
             -- stylua: ignore
-            vim.keymap.set("n", "<C-k>", "<CMD>lua require(\"crates\").show_popup()<CR>", { buffer = buffer })
+            vim.keymap.set("n", "KK", "<CMD>lua require(\"crates\").show_popup()<CR>", { buffer = buffer })
           end)
         end
       },

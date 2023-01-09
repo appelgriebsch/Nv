@@ -22,9 +22,12 @@ return {
     dependencies = {
       "simrat39/rust-tools.nvim",
       init = function()
+        require("which-key").register({
+          ["<leader>r"] = { name = "+rust" },
+        })
         require("lazyvim.util").on_attach(function(_, buffer)
           -- stylua: ignore
-          vim.keymap.set("n", "<C-k>", "<CMD>RustHoverActions<CR>", { buffer = buffer })
+          vim.keymap.set("n", "<leader>ra", "<CMD>RustHoverActions<CR>", { buffer = buffer, desc = "Hover Actions" })
         end)
       end,
     },
@@ -45,7 +48,7 @@ return {
             },
             tools = {
               hover_actions = {
-                auto_focus = false,
+                auto_focus = true,
               },
               inlay_hints = {
                 auto = false,

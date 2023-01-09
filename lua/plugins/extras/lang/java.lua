@@ -19,7 +19,14 @@ return {
   -- correctly setup lspconfig
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "mfussenegger/nvim-jdtls" },
+    dependencies = {
+      "mfussenegger/nvim-jdtls",
+      init = function()
+        require("which-key").register({
+          ["<leader>j"] = { name = "+java" },
+        })
+      end
+    },
     opts = {
       -- configure jdtls and attach to Java ft
       setup = {

@@ -6,15 +6,19 @@ return {
   -- disable catppuccin
   { "catppuccin/nvim", name = "catppuccin", enabled = false },
 
-  -- use onedarkpro instead
   {
-    "olimorris/onedarkpro.nvim",
+    "projekt0n/github-nvim-theme",
     lazy = false,
     priority = 1000,
     config = function()
       vim.opt.background = "dark"
-      vim.cmd("colorscheme onedark")
-      require("onedarkpro").setup()
+      require("github-theme").setup({
+        theme_style = "dark",
+        comment_style = "NONE",
+        keyword_style = "NONE",
+        function_style = "NONE",
+        variable_style = "NONE"
+      })
     end,
   },
 

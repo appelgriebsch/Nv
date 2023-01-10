@@ -19,22 +19,17 @@ return {
   -- correctly setup lspconfig
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      "simrat39/rust-tools.nvim",
-      init = function()
-        require("which-key").register({
-          ["<leader>r"] = { name = "+rust" },
-        })
-        require("lazyvim.util").on_attach(function(_, buffer)
-          -- stylua: ignore
-          vim.keymap.set("n", "<leader>ra", "<CMD>RustHoverActions<CR>", { buffer = buffer, desc = "Hover Actions" })
-        end)
-      end,
-    },
+    dependencies = { "simrat39/rust-tools.nvim" },
     opts = {
       -- make sure mason installs the server
       setup = {
         rust_analyzer = function(_, opts)
+          require("lazyvim.util").on_attach(function(client, buffer)
+            -- stylua: ignore
+            if client.name == "rust_analyzer" then
+              vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer, desc = "Hover Actions" })
+            end
+          end)
           local mason_registry = require("mason-registry")
           -- rust tools configuration for debugging support
           local codelldb = mason_registry.get_package("codelldb")
@@ -48,7 +43,7 @@ return {
             },
             tools = {
               hover_actions = {
-                auto_focus = true,
+                auto_focus = false,
               },
               inlay_hints = {
                 auto = false,

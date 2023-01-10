@@ -7,4 +7,4 @@ vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>")
 
 -- gitui instead of lazygit
 vim.keymap.set("n", "<leader>gg", function() require("lazyvim.util").float_term({ "gitui" }) end, { desc = "gitui (cwd)" })
-vim.keymap.set("n", "<leader>gG", function() util.float_term({ "gitui" }, { cwd = util.get_root() }) end, { desc = "gitui (root dir)" })
+vim.keymap.set("n", "<leader>gG", function() require("lazyvim.util").float_term({ "gitui" }, { cwd = require("lazyvim.util").get_root() }) end, { desc = "gitui (root dir)" })

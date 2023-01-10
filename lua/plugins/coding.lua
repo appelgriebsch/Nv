@@ -9,10 +9,15 @@ return {
         event = { "BufRead Cargo.toml" },
         config = true,
         init = function()
-          require("lazyvim.util").on_attach(function(_, buffer)
-            -- stylua: ignore
-            vim.keymap.set("n", "KK", "<CMD>lua require(\"crates\").show_popup()<CR>", { buffer = buffer })
-          end)
+          vim.api.nvim_create_autocmd("FileType", {
+            pattern = "toml",
+            callback = function(evt)
+              if vim.fn.expand("%:t") == "Cargo.toml" then
+                -- stylua: ignore
+                vim.keymap.set("n", "KK", "<CMD>lua require(\"crates\").show_popup()<CR>", { buffer = evt.buf })
+              end
+            end
+          })
         end
       },
       {

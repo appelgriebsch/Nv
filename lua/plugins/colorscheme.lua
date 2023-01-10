@@ -6,20 +6,22 @@ return {
   -- disable catppuccin
   { "catppuccin/nvim", name = "catppuccin", enabled = false },
 
+  { "projekt0n/github-nvim-theme" },
+
+  -- Configure LazyVim to load github-dark color scheme
   {
-    "projekt0n/github-nvim-theme",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.opt.background = "dark"
-      require("github-theme").setup({
-        theme_style = "dark",
-        comment_style = "NONE",
-        keyword_style = "NONE",
-        function_style = "NONE",
-        variable_style = "NONE"
-      })
-    end,
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = function()
+        require("github-theme").setup({
+          theme_style = "dark",
+          comment_style = "NONE",
+          keyword_style = "NONE",
+          function_style = "NONE",
+          variable_style = "NONE"
+        })
+      end
+    },
   },
 
 }

@@ -18,6 +18,10 @@ return {
         "David-Kunz/cmp-npm",
         event = { "BufRead package.json" },
         config = true,
+      },
+      {
+        "hrsh7th/cmp-path",
+        event = "InsertEnter",
       }
     },
     ---@param opts cmp.ConfigSchema
@@ -42,6 +46,7 @@ return {
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
         { name = "crates" },
         { name = "npm", keyword_length = 4 },
+        { name = "path" },
       }))
     end,
   },

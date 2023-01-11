@@ -10,10 +10,10 @@ return {
       },
     },
     config = function()
-      vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
       require("dap").defaults.fallback.terminal_win_cmd = "enew"
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "dap-repl",

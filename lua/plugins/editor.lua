@@ -142,8 +142,8 @@ return {
     "folke/which-key.nvim",
     opts = function()
       require("which-key").register({
+        ["<leader>d"] = { name = "+debug", mode = { "n", "v" } },
         ["<leader>ct"] = { name = "+test" },
-        ["<leader>d"] = { name = "+debug" },
       })
     end
   },

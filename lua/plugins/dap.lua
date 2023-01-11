@@ -37,7 +37,7 @@ return {
       { "<leader>dbs", "<CMD>Telescope dap list_breakpoints<CR>", desc = "show all" },
       { "<leader>dbt", "<CMD>lua require(\"dap\").toggle_breakpoint()<CR>", desc = "toggle breakpoint" },
       { "<leader>dc", "<CMD>lua require(\"dap\").continue()<CR>", desc = "continue" },
-      { "<leader>de", "<CMD>lua require(\"dap.ui.widgets\").hover()<CR>", desc = "expression" },
+      { "<leader>de", "<CMD>lua require(\"dap.ui.widgets\").hover()<CR>", desc = "expression", mode = { "n", "v" } },
       { "<leader>dp", "<CMD>lua require(\"dap\").pause()<CR>", desc = "pause" },
       { "<leader>dr", "<CMD>Telescope dap configurations<CR>", desc = "run" },
       { "<leader>dsb", "<CMD>lua require(\"dap\").step_back()<CR>", desc = "step back" },

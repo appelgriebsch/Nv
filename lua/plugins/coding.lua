@@ -3,23 +3,6 @@ return {
   -- extend auto completion
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-      {
-        "Saecki/crates.nvim",
-        event = { "BufRead Cargo.toml" },
-        config = true,
-      },
-      {
-        "vuki656/package-info.nvim",
-        event = { "BufRead package.json" },
-        config = true,
-      },
-      {
-        "David-Kunz/cmp-npm",
-        event = { "BufRead package.json" },
-        config = true,
-      }
-    },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
@@ -39,10 +22,6 @@ return {
         -- Set `select` to `false` to only confirm explicitly selected items.
         ["<CR>"] = cmp.mapping.confirm { select = true },
       })
-      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
-        { name = "crates" },
-        { name = "npm", keyword_length = 4 },
-      }))
     end,
   },
 
@@ -75,25 +54,18 @@ return {
       ensure_installed = {
         "bash",
         "comment",
-        "css",
         "dockerfile",
         "dot",
         "gitignore",
         "graphql",
-        "html",
         "http",
-        "javascript",
-        "jsdoc",
         "lua",
         "make",
         "markdown",
         "markdown_inline",
         "python",
         "regex",
-        "scss",
         "sql",
-        "tsx",
-        "typescript",
         "vim",
         "yaml"
       }

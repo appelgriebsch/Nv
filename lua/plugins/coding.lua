@@ -18,13 +18,18 @@ return {
               end
             end
           })
-        end
+        end,
       },
       {
         "vuki656/package-info.nvim",
         event = { "BufRead package.json" },
-        config = true
+        config = true,
       },
+      {
+        "David-Kunz/cmp-npm",
+        event = { "BufRead package.json" },
+        config = true,
+      }
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
@@ -47,7 +52,7 @@ return {
       })
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
         { name = "crates" },
-        { name = "npm" },
+        { name = "npm", keyword_length = 4 },
       }))
     end,
   },

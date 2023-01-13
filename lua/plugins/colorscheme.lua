@@ -15,6 +15,8 @@ return {
       colorscheme = function()
         require("github-theme").setup({
           theme_style = "dark",
+          dark_float = true,
+          dark_sidebar = true,
           comment_style = "NONE",
           keyword_style = "NONE",
           function_style = "NONE",

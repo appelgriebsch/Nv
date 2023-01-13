@@ -13,7 +13,6 @@ return {
         "lua-language-server",
       },
       ui = {
-        border = "rounded",
         icons = {
           package_installed = "✓",
           package_pending = "",

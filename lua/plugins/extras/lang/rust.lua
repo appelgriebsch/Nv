@@ -63,6 +63,7 @@ return {
             tools = {
               hover_actions = {
                 auto_focus = false,
+                border = "none",
               },
               inlay_hints = {
                 auto = false,

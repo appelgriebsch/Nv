@@ -120,14 +120,14 @@ return {
     opts = function(_, opts)
       local dashboard = require("alpha.themes.dashboard")
       opts.section.buttons.val = {
-        dashboard.button("p", "  > Open project", "<CMD>Telescope project display_type=full<CR>"),
-        dashboard.button("e", "  > New file", "<CMD>ene <BAR> startinsert<CR>"),
-        dashboard.button("f", "  > Find file", "<CMD>cd $HOME/Projects | Telescope find_files<CR>"),
-        dashboard.button("l", "  > Plugins", "<CMD>Lazy<CR>"),
-        dashboard.button("m", "  > LSP Servers", "<CMD>Mason<CR>"),
-        dashboard.button("r", "  > Recent files", "<CMD>Telescope oldfiles<CR>"),
-        dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | Telescope file_browser<CR>"),
-        dashboard.button("q", "  > Quit NVIM", "<CMD>qa<CR>"),
+        dashboard.button("p", " " .. "Open project", "<cmd>Telescope project display_type=full<cr>"),
+        dashboard.button("e", " " .. "New file", "<cmd>ene <BAR> startinsert<cr>"),
+        dashboard.button("f", " " .. "Find file", "<cmd>cd $HOME/Projects | Telescope find_files<cr>"),
+        dashboard.button("l", "鈴" .. "Lazy", "<cmd>Lazy<cr>"),
+        dashboard.button("m", " " .. "Mason", "<cmd>Mason<cr>"),
+        dashboard.button("r", " " .. "Recent files", "<CMD>Telescope oldfiles<cr>"),
+        dashboard.button("s", " " .. "Settings", ":e $MYVIMRC | :cd %:p:h | Telescope file_browser<cr>"),
+        dashboard.button("q", " " .. "Quit", "<cmd>qa<cr>"),
       }
       opts.config.opts.setup = function()
         vim.api.nvim_create_autocmd("User", {

@@ -6,7 +6,7 @@ return {
   -- disable catppuccin
   { "catppuccin/nvim", name = "catppuccin", enabled = false },
 
-  { "projekt0n/github-nvim-theme" },
+  { "projekt0n/github-nvim-theme", branch = "0.0.x" },
 
   -- Configure LazyVim to load github-dark color scheme
   {

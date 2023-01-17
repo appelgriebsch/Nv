@@ -81,9 +81,6 @@ return {
                   require("jdtls").setup.add_commands()
                   require("jdtls").dap.setup_dap_main_class_configs()
                 end,
-                flags = {
-                  server_side_fuzzy_completion = true
-                },
                 cmd = {
                   "java",
                   "--add-modules=ALL-SYSTEM",
@@ -111,17 +108,50 @@ return {
                 },
                 settings = {
                   java = {
+                    configuration = {
+                      updateBuildConfiguration = "automatic",
+                    },
+                    codeGeneration = {
+                      toString = {
+                        template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
+                      },
+                      useBlocks = true,
+                    },
+                    completion = {
+                      favoriteStaticMembers = {
+                        "org.junit.Assert.*",
+                        "org.junit.Assume.*",
+                        "org.junit.jupiter.api.Assertions.*",
+                        "org.junit.jupiter.api.Assumptions.*",
+                        "org.junit.jupiter.api.DynamicContainer.*",
+                        "org.junit.jupiter.api.DynamicTest.*",
+                        "org.mockito.Mockito.*",
+                        "org.mockito.ArgumentMatchers.*",
+                        "org.mockito.Answers.*"
+                      },
+                      importOrder = {
+                        "#",
+                        "java",
+                        "javax",
+                        "org",
+                        "com"
+                      },
+                    },
                     eclipse = {
                       downloadSources = true,
                     },
-                    configuration = {
-                      updateBuildConfiguration = "interactive",
-                    },
-                    maven = {
-                      downloadSources = true,
+                    flags = {
+                      allow_incremental_sync = true,
+                      server_side_fuzzy_completion = true
                     },
                     implementationsCodeLens = {
                       enabled = false, --Don"t automatically show implementations
+                    },
+                    inlayHints = {
+                      parameterNames = { enabled = "literals" }
+                    },
+                    maven = {
+                      downloadSources = true,
                     },
                     referencesCodeLens = {
                       enabled = false, --Don"t automatically show references
@@ -129,45 +159,24 @@ return {
                     references = {
                       includeDecompiledSources = true,
                     },
-                  },
-                  signatureHelp = { enabled = true },
-                  inlayHints = {
-                    parameterNames = { enabled = "all" }
-                  },
-                  contentProvider = { preferred = "fernflower" },
-                  completion = {
-                    favoriteStaticMembers = {
-                      "org.hamcrest.Matchers.*",
-                      "org.hamcrest.CoreMatchers.*",
-                      "org.assertj.core.api.Assertions",
-                      "org.junit.jupiter.api.Assertions.*",
-                      "java.util.Objects.requireNonNull",
-                      "java.util.Objects.requireNonNullElse",
-                      "org.mockito.Mockito.*"
-                    }
-                  },
-                  sources = {
-                    organizeImports = {
-                      starThreshold = 9999;
-                      staticStarThreshold = 9999;
+                    saveActions = {
+                      organizeImports = true,
+                    },
+                    signatureHelp = { enabled = true },
+                    sources = {
+                      organizeImports = {
+                        starThreshold = 9999;
+                        staticStarThreshold = 9999;
+                      },
                     },
                   },
-                  codeGeneration = {
-                    toString = {
-                      template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
+                  initializationOptions = {
+                    extendedClientCapabilities = {
+                      resolveAdditionalTextEditsSupport = true,
+                      progressReportProvider = false,
                     },
-                    useBlocks = true,
-                  },
-                  flags = {
-                    allow_incremental_sync = true,
-                  },
-                },
-                init_options = {
-                  extendedClientCapabilities = {
-                    resolveAdditionalTextEditsSupport = true,
-                    progressReportProvider = false,
-                  },
-                  bundles = bundles,
+                    bundles = bundles,
+                  }
                 }
               })
               jdtls.start_or_attach(jdtls_config)

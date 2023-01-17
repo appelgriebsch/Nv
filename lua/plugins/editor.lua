@@ -54,6 +54,7 @@ return {
   -- customize telescope
   {
     "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
     dependencies = {
       { "nvim-telescope/telescope-dap.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },

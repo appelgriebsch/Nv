@@ -70,20 +70,22 @@ return {
                 show_parameter_hints = true,
               },
             },
-            settings = {
-              ["rust-analyzer"] = {
-                cargo = {
-                  allFeatures = true,
-                  loadOutDirsFromCheck = true,
-                  runBuildScripts = true,
-                },
-                -- Add clippy lints for Rust.
-                checkOnSave = {
-                  command = 'clippy',
-                },
-                procMacro = {
-                  enable = true,
-                },
+            server = {
+              settings = {
+                ["rust-analyzer"] = {
+                  cargo = {
+                    features = "all",
+                  },
+                  -- Add clippy lints for Rust.
+                  checkOnSave = true,
+                  check = {
+                    command = "clippy",
+                    features = "all",
+                  },
+                  procMacro = {
+                    enable = true,
+                  },
+                }
               }
             }
           })
@@ -98,13 +100,14 @@ return {
               vim.lsp.buf.hover()
             end
           end
+
           require("lazyvim.util").on_attach(function(client, buffer)
             -- stylua: ignore
             if client.name == "taplo" then
               vim.keymap.set("n", "K", show_documentation, { buffer = buffer })
             end
           end)
-          return false             -- make sure the base implementation calls taplo.setup
+          return false -- make sure the base implementation calls taplo.setup
         end,
       },
     },

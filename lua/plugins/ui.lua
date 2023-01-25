@@ -12,7 +12,7 @@ return {
 
   -- bufferline
   {
-    "akinsho/nvim-bufferline.lua",
+    "akinsho/bufferline.nvim",
     opts = {
       options = {
         numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,

@@ -170,13 +170,13 @@ return {
                       },
                     },
                   },
-                  initializationOptions = {
-                    extendedClientCapabilities = {
-                      resolveAdditionalTextEditsSupport = true,
-                      progressReportProvider = false,
-                    },
-                    bundles = bundles,
-                  }
+                },
+                init_options = {
+                  extendedClientCapabilities = {
+                    resolveAdditionalTextEditsSupport = true,
+                    progressReportProvider = false,
+                  },
+                  bundles = bundles,
                 }
               })
               jdtls.start_or_attach(jdtls_config)

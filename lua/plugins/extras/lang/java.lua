@@ -36,6 +36,7 @@ return {
           local mason_registry = require("mason-registry")
           local jdtls_pkg = mason_registry.get_package("jdtls")
           local jdtls_path = jdtls_pkg:get_install_path()
+          local jdtls_bin = jdtls_path .. "/bin/jdtls"
 
           local java_test_pkg = mason_registry.get_package("java-test")
           local java_test_path = java_test_pkg:get_install_path()
@@ -82,28 +83,7 @@ return {
                   require("jdtls").dap.setup_dap_main_class_configs()
                 end,
                 cmd = {
-                  "java",
-                  "--add-modules=ALL-SYSTEM",
-                  "--add-opens",
-                  "java.base/java.util=ALL-UNNAMED",
-                  "--add-opens",
-                  "java.base/java.lang=ALL-UNNAMED",
-                  "--add-opens",
-                  "java.base/sun.nio.fs=ALL-UNNAMED",
-                  "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-                  "-Dosgi.bundles.defaultStartLevel=4",
-                  "-Declipse.product=org.eclipse.jdt.ls.core.product",
-                  "-Dfile.encoding=UTF-8",
-                  "-DwatchParentProcess=${watch_parent_process}",
-                  "-noverify",
-                  "-XX:+UseParallelGC",
-                  "-XX:GCTimeRatio=4",
-                  "-XX:AdaptiveSizePolicyWeight=90",
-                  "-Dsun.zip.disableMemoryMapping=true",
-                  "-Xmx2G",
-                  "-Xms100m",
-                  "-jar", vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
-                  "-configuration", jdtls_path .. "/config_" .. CONFIG,
+                  jdtls_bin,
                   "-data", workspace_folder,
                 },
                 settings = {
@@ -119,6 +99,7 @@ return {
                     },
                     completion = {
                       favoriteStaticMembers = {
+                        "org.assertj.core.api.Assertions.*",
                         "org.junit.Assert.*",
                         "org.junit.Assume.*",
                         "org.junit.jupiter.api.Assertions.*",

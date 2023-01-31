@@ -58,6 +58,11 @@ return {
             end
           end
 
+          local extendedClientCapabilities = vim.tbl_deep_extend("force", require("jdtls").extendedClientCapabilities, {
+            resolveAdditionalTextEditsSupport = true,
+            progressReportProvider = false,
+          });
+
           vim.api.nvim_create_autocmd("FileType", {
             pattern = "java",
             callback = function()
@@ -118,6 +123,7 @@ return {
                         "com"
                       },
                     },
+                    contentProvider = { preferred = "fernflower" },
                     eclipse = {
                       downloadSources = true,
                     },
@@ -152,11 +158,8 @@ return {
                     },
                   },
                 },
-                init_options = {
-                  extendedClientCapabilities = {
-                    resolveAdditionalTextEditsSupport = true,
-                    progressReportProvider = false,
-                  },
+                initializationOptions = {
+                  extendedClientCapabilities = extendedClientCapabilities,
                   bundles = bundles,
                 }
               })

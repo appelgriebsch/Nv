@@ -63,6 +63,14 @@ return {
             progressReportProvider = false,
           });
 
+          local function print_test_results(items)
+            if #items > 0 then
+              vim.cmd([[Trouble quickfix]])
+            else
+              vim.cmd([[TroubleClose quickfix]])
+            end
+          end
+
           vim.api.nvim_create_autocmd("FileType", {
             pattern = "java",
             callback = function()
@@ -80,9 +88,10 @@ return {
                   require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
                   require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
                   -- custom keymaps
-                  vim.keymap.set("n", "<leader>co", "<CMD>lua require(\"jdtls\").organize_imports()<CR>", { buffer = buffer, desc = "Organize Imports" })
-                  vim.keymap.set("n", "<leader>ctc", "<CMD>lua require(\"jdtls\").test_class()<CR>", { buffer = buffer, desc = "Nearest Class" })
-                  vim.keymap.set("n", "<leader>ctm", "<CMD>lua require(\"jdtls\").test_nearest_method()<CR>", { buffer = buffer, desc = "Nearest Method" })
+                  vim.keymap.set("n", "<leader>co", function() require("jdtls").organize_imports() end, { buffer = buffer, desc = "Organize Imports" })
+                  vim.keymap.set("n", "<leader>ctc", function() require("jdtls").test_class({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Test Nearest Class" })
+                  vim.keymap.set("n", "<leader>ctm", function() require("jdtls").test_nearest_method({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Test Nearest Method" })
+                  vim.keymap.set("n", "<leader>ctr", function() require("jdtls").pick_test({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Run Test" })
                   require("jdtls").setup_dap({ hotcodereplace = "auto" })
                   require("jdtls").setup.add_commands()
                   require("jdtls").dap.setup_dap_main_class_configs()
@@ -158,7 +167,7 @@ return {
                     },
                   },
                 },
-                initializationOptions = {
+                init_options = {
                   extendedClientCapabilities = extendedClientCapabilities,
                   bundles = bundles,
                 }

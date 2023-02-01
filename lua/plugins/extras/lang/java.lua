@@ -93,8 +93,8 @@ return {
                   vim.keymap.set("n", "<leader>ctm", function() require("jdtls").test_nearest_method({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Test Nearest Method" })
                   vim.keymap.set("n", "<leader>ctr", function() require("jdtls").pick_test({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Run Test" })
                   require("jdtls").setup_dap({ hotcodereplace = "auto" })
-                  require("jdtls").setup.add_commands()
-                  require("jdtls").dap.setup_dap_main_class_configs()
+                  require("jdtls.dap").setup_dap_main_class_configs()
+                  require("jdtls.setup").add_commands()
                 end,
                 cmd = {
                   jdtls_bin,

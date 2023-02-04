@@ -126,6 +126,11 @@ return {
         "<leader>fp",
         "<CMD>Telescope project display_type=full<CR>",
         desc = "Find project"
+      },
+      {
+        "<leader>sx",
+        "<CMD>Telescope resume<CR>",
+        desc = "Resume last search"
       }
     },
     config = function(_, opts)

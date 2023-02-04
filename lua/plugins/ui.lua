@@ -129,6 +129,15 @@ return {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       local dashboard = require("alpha.themes.dashboard")
+      local logo = [[
+ ███╗   ██╗ ███████╗  ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗
+ ████╗  ██║ ██╔════╝ ██╔═══██╗ ██║   ██║ ██║ ████╗ ████║
+ ██╔██╗ ██║ █████╗   ██║   ██║ ██║   ██║ ██║ ██╔████╔██║
+ ██║╚██╗██║ ██╔══╝   ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║
+ ██║ ╚████║ ███████╗ ╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║
+ ╚═╝  ╚═══╝ ╚══════╝  ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝
+      ]]
+      opts.section.header.val = vim.split(logo, "\n")
       opts.section.buttons.val = {
         dashboard.button("p", " " .. "Open project", "<cmd>Telescope project display_type=full<cr>"),
         dashboard.button("e", " " .. "New file", "<cmd>ene <BAR> startinsert<cr>"),

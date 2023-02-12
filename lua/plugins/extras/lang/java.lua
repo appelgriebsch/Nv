@@ -99,6 +99,7 @@ return {
                 cmd = {
                   jdtls_bin,
                   "-data", workspace_folder,
+                  "--jvm-arg=-Xms2G"
                 },
                 settings = {
                   java = {

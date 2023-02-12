@@ -5,7 +5,7 @@ return {
     "rcarriga/nvim-notify",
     opts = {
       stages = "fade_in_slide_out",
-      timeout = 5000,
+      timeout = 3000,
       render = "compact",
     }
   },
@@ -141,11 +141,12 @@ return {
       opts.section.buttons.val = {
         dashboard.button("p", " " .. "Open project", "<cmd>Telescope project display_type=full<cr>"),
         dashboard.button("e", " " .. "New file", "<cmd>ene <BAR> startinsert<cr>"),
-        dashboard.button("f", " " .. "Find file", "<cmd>cd $HOME/Projects | Telescope find_files<cr>"),
+        dashboard.button("f", " " .. "Find file", "<cmd>cd $HOME/Projects | Telescope find_files<cr>"),
+        dashboard.button("r", " " .. "Recent files", "<CMD>Telescope oldfiles<cr>"),
+        dashboard.button("s", "勒" .. "Restore Session", [[:lua require("persistence").load() <cr>]]),
+        dashboard.button("c", " " .. "Config", ":e $MYVIMRC | :cd %:p:h | Telescope file_browser<cr>"),
         dashboard.button("l", "鈴" .. "Lazy", "<cmd>Lazy<cr>"),
         dashboard.button("m", " " .. "Mason", "<cmd>Mason<cr>"),
-        dashboard.button("r", " " .. "Recent files", "<CMD>Telescope oldfiles<cr>"),
-        dashboard.button("s", " " .. "Settings", ":e $MYVIMRC | :cd %:p:h | Telescope file_browser<cr>"),
         dashboard.button("q", " " .. "Quit", "<cmd>qa<cr>"),
       }
       opts.config.opts.setup = function()
@@ -176,6 +177,32 @@ return {
       current_only = true,
       winblend = 75,
     }
+  },
+
+  -- add minimap to buffer
+  {
+    "gorbit99/codewindow.nvim",
+    enabled = false,
+    event = "BufReadPre",
+    config = function()
+      local codewindow = require("codewindow")
+      codewindow.setup({
+        active_in_terminals = false, -- Should the minimap activate for terminal buffers
+        auto_enable = true, -- Automatically open the minimap when entering a (non-excluded) buffer (accepts a table of filetypes)
+        exclude_filetypes = { "neo-tree", "Outline" }, -- Choose certain filetypes to not show minimap on
+        max_minimap_height = nil, -- The maximum height the minimap can take (including borders)
+        max_lines = nil, -- If auto_enable is true, don't open the minimap for buffers which have more than this many lines.
+        minimap_width = 20, -- The width of the text part of the minimap
+        use_lsp = true, -- Use the builtin LSP to show errors and warnings
+        use_treesitter = true, -- Use nvim-treesitter to highlight the code
+        use_git = true, -- Show small dots to indicate git additions and deletions
+        width_multiplier = 4, -- How many characters one dot represents
+        z_index = 1, -- The z-index the floating window will be on
+        show_cursor = true, -- Show the cursor position in the minimap
+        window_border = "none" -- The border style of the floating window (accepts all usual options)
+      })
+      --codewindow.apply_default_keybinds()
+    end,
   },
 
 }

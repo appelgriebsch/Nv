@@ -15,7 +15,7 @@ return {
       vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" })
       vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
       vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
-      require("dap").defaults.fallback.terminal_win_cmd = "enew"
+      require("dap").defaults.fallback.terminal_win_cmd = "enew | set filetype=dap-terminal"
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "dap-repl",
         callback = function()

@@ -24,3 +24,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "dap-terminal",
+  },
+  callback = function(event)
+    vim.keymap.set("n", "q", "<cmd>bdelete!<cr>", { buffer = event.buf, silent = true })
+  end,
+})

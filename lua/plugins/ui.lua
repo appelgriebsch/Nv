@@ -183,6 +183,7 @@ return {
   {
     "gorbit99/codewindow.nvim",
     event = "BufReadPre",
+    enabled = false,
     config = function()
       local codewindow = require("codewindow")
       codewindow.setup({

@@ -47,6 +47,8 @@ return {
             -- stylua: ignore
             if client.name == "rust_analyzer" then
               vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer })
+              vim.keymap.set("n", "<leader>ct", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run Test" })
+              vim.keymap.set("n", "<leader>dr", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run" })
             end
           end)
           local mason_registry = require("mason-registry")

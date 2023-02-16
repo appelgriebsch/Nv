@@ -73,6 +73,7 @@ return {
           height = 0.9,
           width = 0.9
         },
+        wrap_results = true,
         mappings = {
           i = {
             ["<C-j>"] = function(...)

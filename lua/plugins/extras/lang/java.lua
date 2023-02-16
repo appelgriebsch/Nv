@@ -52,9 +52,7 @@ return {
           local bundles = {}
           for _, jar_pattern in ipairs(jar_patterns) do
             for _, bundle in ipairs(vim.split(vim.fn.glob(jar_pattern), '\n')) do
-              if not vim.endswith(bundle, "com.microsoft.java.test.runner.jar") then
-                table.insert(bundles, bundle)
-              end
+              table.insert(bundles, bundle)
             end
           end
 
@@ -89,9 +87,7 @@ return {
                   require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
                   -- custom keymaps
                   vim.keymap.set("n", "<leader>co", function() require("jdtls").organize_imports() end, { buffer = buffer, desc = "Organize Imports" })
-                  vim.keymap.set("n", "<leader>ctc", function() require("jdtls").test_class({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Test Nearest Class" })
-                  vim.keymap.set("n", "<leader>ctm", function() require("jdtls").test_nearest_method({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Test Nearest Method" })
-                  vim.keymap.set("n", "<leader>ctr", function() require("jdtls").pick_test({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Run Test" })
+                  vim.keymap.set("n", "<leader>ct", function() require("jdtls").pick_test({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Run Test" })
                   require("jdtls").setup_dap({ hotcodereplace = "auto" })
                   require("jdtls.dap").setup_dap_main_class_configs()
                   require("jdtls.setup").add_commands()

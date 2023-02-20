@@ -10,6 +10,3 @@ if vim.fn.executable("btop") == 1 then
   -- btop
   vim.keymap.set("n", "<leader>xb", function() require("lazyvim.util").float_term({ "btop" }) end, { desc = "btop" })
 end
-
-vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { desc = "Open Location List (Trouble)" })
-vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { desc = "Open Quickfix List (Trouble)" })

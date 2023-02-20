@@ -73,7 +73,6 @@ return {
           height = 0.9,
           width = 0.9
         },
-        wrap_results = true,
         mappings = {
           i = {
             ["<C-j>"] = function(...)
@@ -127,11 +126,6 @@ return {
         "<CMD>Telescope project display_type=full<CR>",
         desc = "Find project"
       },
-      {
-        "<leader>sx",
-        "<CMD>Telescope resume<CR>",
-        desc = "Resume last search"
-      }
     },
     config = function(_, opts)
       local telescope = require("telescope")

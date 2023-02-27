@@ -46,6 +46,7 @@ return {
       })
     end,
     keys = {
+      { "<leader>ce", function() local env = vim.fn.input("environment: ", ".env"); require("rest-nvim").select_env(env); end, desc = "Switch Environment" },
       { "<leader>cp", function() require("rest-nvim").run(true) end, desc = "Preview Request" },
       { "<leader>ct", function() require("rest-nvim").run() end, desc = "Test Request" },
     }

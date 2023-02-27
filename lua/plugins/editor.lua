@@ -143,7 +143,6 @@ return {
     opts = function()
       require("which-key").register({
         ["<leader>d"] = { name = "+debug", mode = { "n", "v" } },
-        ["<leader>ct"] = { name = "+test" },
       })
     end
   },

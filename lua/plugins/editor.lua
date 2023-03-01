@@ -214,4 +214,8 @@ return {
     keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
 
+  -- deactivate flit.nvim & leap.nvim
+   { "ggandor/flit.nvim", enabled = false },
+   { "ggandor/leap.nvim", enabled = false },
+
 }

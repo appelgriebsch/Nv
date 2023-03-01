@@ -33,9 +33,6 @@ return {
           -- set them to false if you want to disable them
           formatters = {
             json = "jq",
-            html = function(body)
-              return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-            end
           },
         },
         -- Jump to request line on run

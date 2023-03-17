@@ -85,6 +85,7 @@ return {
         return table.concat(buf_client_names, ", ")
       end
 
+      opts.options.theme = "ayu_mirage"
       opts.sections = vim.tbl_deep_extend("force", opts.sections, {
         lualine_c = {
           {

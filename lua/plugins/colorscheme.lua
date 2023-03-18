@@ -6,28 +6,35 @@ return {
   -- disable catppuccin
   { "catppuccin/nvim", name = "catppuccin", enabled = false },
 
-  { "Shatur/neovim-ayu" },
+  { "olimorris/onedarkpro.nvim" },
 
   -- Configure LazyVim to load color scheme
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = function()
-        local ayu = require("ayu")
-        local colors = require('ayu.colors')
-        colors.generate(true)
-        ayu.setup({
-          mirage = true,
-          overrides = {
-            AlphaHeader = { fg = colors.accent },
-            AlphaButtons = { fg = colors.ui },
-            AlphaShortcut = { fg = colors.tag },
-            NormalFloat = { bg = "#242B38" },
-            CursorLine = { bg = colors.bg },
-            CursorLineNr = { bg = colors.bg },
+        local onedarkpro = require("onedarkpro")
+        onedarkpro.setup({
+          theme = "onedark_vivid",
+          styles = {
+            strings = "NONE", -- Style that is applied to strings
+            comments = "NONE", -- Style that is applied to comments
+            keywords = "NONE", -- Style that is applied to keywords
+            functions = "NONE", -- Style that is applied to functions
+            variables = "NONE", -- Style that is applied to variables
+          },
+          highlights = {
+            AlphaHeader = { fg = "${yellow}" },
+            AlphaButtons = { fg = "${white}" },
+            AlphaShortcut = { fg = "${red}" },
+          },
+          options = {
+            bold = false, -- Use the themes opinionated bold styles?
+            terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+            cursorline = false, -- Use cursorline highlighting?
           }
         })
-        ayu.colorscheme()
+        onedarkpro.load()
       end
     },
   },

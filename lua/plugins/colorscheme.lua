@@ -27,6 +27,7 @@ return {
             AlphaHeader = { fg = "${yellow}" },
             AlphaButtons = { fg = "${white}" },
             AlphaShortcut = { fg = "${red}" },
+            AlphaFooter = { fg = "${yellow}" },
           },
           options = {
             bold = false, -- Use the themes opinionated bold styles?

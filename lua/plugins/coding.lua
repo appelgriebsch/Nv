@@ -30,12 +30,6 @@ return {
     config = true
   },
 
-  -- editor config support
-  {
-    "editorconfig/editorconfig-vim",
-    event = "VeryLazy",
-  },
-
   -- tidy
   {
     "mcauley-penney/tidy.nvim",
@@ -61,7 +55,6 @@ return {
         "gitignore",
         "graphql",
         "hcl",
-        "help",
         "http",
         "jq",
         "lua",

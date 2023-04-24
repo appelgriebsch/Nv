@@ -32,14 +32,21 @@ return {
     end,
   },
 
-  -- correctly setup mason lsp / dap extensions
+  -- correctly setup mason lsp extensions
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "css-lsp", "eslint-lsp", "html-lsp", "js-debug-adapter", "stylelint-lsp" })
+      vim.list_extend(opts.ensure_installed, { "css-lsp", "eslint-lsp", "html-lsp", "stylelint-lsp" })
     end,
   },
 
+  -- correctly setup mason dap extensions
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, { "js" })
+    end,
+  },
 
   {
     "mxsdev/nvim-dap-vscode-js",

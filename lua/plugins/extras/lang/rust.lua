@@ -27,11 +27,19 @@ return {
     end,
   },
 
-  -- correctly setup mason lsp / dap extensions
+  -- correctly setup mason lsp extensions
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "codelldb", "rust-analyzer", "taplo" })
+      vim.list_extend(opts.ensure_installed, { "rust-analyzer", "taplo" })
+    end,
+  },
+
+  -- correctly setup mason dap extensions
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, { "codelldb" })
     end,
   },
 
@@ -48,7 +56,6 @@ return {
             if client.name == "rust_analyzer" then
               vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer })
               vim.keymap.set("n", "<leader>ct", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run Test" })
-              vim.keymap.set("n", "<leader>dr", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run" })
             end
           end)
           local mason_registry = require("mason-registry")
@@ -102,7 +109,6 @@ return {
               vim.lsp.buf.hover()
             end
           end
-
           require("lazyvim.util").on_attach(function(client, buffer)
             -- stylua: ignore
             if client.name == "taplo" then

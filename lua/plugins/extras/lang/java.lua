@@ -8,11 +8,19 @@ return {
     end,
   },
 
-  -- correctly setup mason lsp / dap extensions
+  -- correctly setup mason lsp extensions
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "jdtls", "java-test", "java-debug-adapter" })
+      vim.list_extend(opts.ensure_installed, { "jdtls" })
+    end,
+  },
+
+  -- correctly setup mason dap extensions
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, { "javatest", "javadbg" })
     end,
   },
 
@@ -56,10 +64,11 @@ return {
             end
           end
 
-          local extendedClientCapabilities = vim.tbl_deep_extend("force", require("jdtls").extendedClientCapabilities, {
-            resolveAdditionalTextEditsSupport = true,
-            progressReportProvider = false,
-          });
+          local extendedClientCapabilities = vim.tbl_deep_extend("force", require("jdtls").extendedClientCapabilities,
+            {
+              resolveAdditionalTextEditsSupport = true,
+              progressReportProvider = false,
+            });
 
           local function print_test_results(items)
             if #items > 0 then
@@ -82,16 +91,17 @@ return {
 
               local jdtls = require("jdtls")
               local jdtls_config = vim.tbl_deep_extend("force", opts, {
-                on_attach = function(client, buffer)
-                  require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
-                  require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
+                on_attach = require("lazyvim.util").on_attach(function(client, buffer)
                   -- custom keymaps
-                  vim.keymap.set("n", "<leader>co", function() require("jdtls").organize_imports() end, { buffer = buffer, desc = "Organize Imports" })
-                  vim.keymap.set("n", "<leader>ct", function() require("jdtls").pick_test({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Run Test" })
+                  vim.keymap.set("n", "<leader>co", function() require("jdtls").organize_imports() end,
+                    { buffer = buffer, desc = "Organize Imports" })
+                  vim.keymap.set("n", "<leader>ct",
+                    function() require("jdtls").pick_test({ bufnr = buffer, after_test = print_test_results }) end,
+                    { buffer = buffer, desc = "Run Test" })
                   require("jdtls").setup_dap({ hotcodereplace = "auto" })
                   require("jdtls.dap").setup_dap_main_class_configs()
                   require("jdtls.setup").add_commands()
-                end,
+                end),
                 cmd = {
                   jdtls_bin,
                   "-data", workspace_folder,

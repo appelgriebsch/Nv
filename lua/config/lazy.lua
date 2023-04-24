@@ -9,8 +9,14 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- import LazyVim plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins", version = "^1.0" },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", version = "^2.0" },
+    -- lazyvim UI extension modules
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    -- lazyvim editor extension modules
+    { import = "lazyvim.plugins.extras.util.project" },
+    -- lazyvim dap core extension modules
+    { import = "lazyvim.plugins.extras.dap.core" },
+    -- lazyvim coding extension modules
     -- { import = "lazyvim.plugins.extras.coding.copilot" },
     -- import/override with your plugins
     { import = "plugins" },

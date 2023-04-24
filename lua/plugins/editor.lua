@@ -1,9 +1,3 @@
--- every spec file under config.plugins will be loaded automatically by lazy.nvim
---
--- In your plugin files, you can:
--- * add extra plugins
--- * disable/enabled LazyVim plugins
--- * override the configuration of LazyVim plugins
 return {
 
   -- disable mini.bufremove
@@ -57,7 +51,6 @@ return {
     dependencies = {
       { "nvim-telescope/telescope-dap.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      { "nvim-telescope/telescope-project.nvim" },
       { "debugloop/telescope-undo.nvim" },
     },
     opts = {
@@ -105,11 +98,6 @@ return {
         },
       },
       extensions = {
-        project = {
-          base_dirs = {
-            '~/Projects'
-          }
-        },
         undo = {
           use_delta = true,
           side_by_side = true,
@@ -120,31 +108,13 @@ return {
         },
       },
     },
-    keys = {
-      {
-        "<leader>fp",
-        "<CMD>Telescope project display_type=full<CR>",
-        desc = "Find project"
-      },
-    },
     config = function(_, opts)
       local telescope = require("telescope")
       telescope.setup(opts)
       telescope.load_extension("dap")
       telescope.load_extension("fzf")
-      telescope.load_extension("project")
       telescope.load_extension("undo")
     end,
-  },
-
-  -- which-key extensions
-  {
-    "folke/which-key.nvim",
-    opts = function()
-      require("which-key").register({
-        ["<leader>d"] = { name = "+debug", mode = { "n", "v" } },
-      })
-    end
   },
 
   -- git blame
@@ -158,12 +128,6 @@ return {
     "akinsho/git-conflict.nvim",
     event = "BufReadPre",
     config = true
-  },
-
-  -- change trouble config
-  {
-    "folke/trouble.nvim",
-    opts = { use_diagnostic_signs = true },
   },
 
   -- add symbols-outline
@@ -213,9 +177,5 @@ return {
     config = true,
     keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
-
-  -- deactivate flit.nvim & leap.nvim
-   { "ggandor/flit.nvim", enabled = false },
-   { "ggandor/leap.nvim", enabled = false },
 
 }

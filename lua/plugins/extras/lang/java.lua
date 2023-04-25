@@ -64,11 +64,10 @@ return {
             end
           end
 
-          local extendedClientCapabilities = vim.tbl_deep_extend("force", require("jdtls").extendedClientCapabilities,
-            {
+          local extendedClientCapabilities = vim.tbl_deep_extend("force", require("jdtls").extendedClientCapabilities, {
               resolveAdditionalTextEditsSupport = true,
               progressReportProvider = false,
-            });
+          });
 
           local function print_test_results(items)
             if #items > 0 then

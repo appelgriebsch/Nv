@@ -36,7 +36,7 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "css-lsp", "eslint-lsp", "html-lsp", "stylelint-lsp" })
+      vim.list_extend(opts.ensure_installed, { "css-lsp", "html-lsp", "stylelint-lsp", "typescript-language-server" })
     end,
   },
 
@@ -55,6 +55,10 @@ return {
       local dap = require("dap")
       local dap_js = require("dap-vscode-js")
       local mason_registry = require("mason-registry")
+      if not mason_registry.is_installed("js-debug-adapter") then
+        vim.notify("js-debug-adapter not installed (yet)!")
+        return
+      end
       local js_debug_pkg = mason_registry.get_package("js-debug-adapter")
       local js_debug_path = js_debug_pkg:get_install_path()
       dap_js.setup({

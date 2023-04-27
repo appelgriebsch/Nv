@@ -4,6 +4,14 @@ A [Neovim](https://neovim.io) setup based on [LazyVim](https://github.com/LazyVi
 
 ## 🚀 Getting Started
 
+1. Install [Neovim] version 0.8 or higher on your machine
+2. Remove or backup your existing configuration files in `~/.config/nvim`
+3. Clone the git repo `git clone https://github.com/appelgriebsch/Nv ~/.config/nvim`
+4. Run `nvim` from a terminal
+
+Optionally: set an environment variable `THEME` with something either `light` or `dark`
+to have the `nvim` theme pickup accordingly (see lua/plugins/colorscheme.lua)
+
 ## Show case
 
 ### Dashboard

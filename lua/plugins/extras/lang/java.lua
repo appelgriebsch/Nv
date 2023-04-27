@@ -46,27 +46,31 @@ return {
           local jdtls_path = jdtls_pkg:get_install_path()
           local jdtls_bin = jdtls_path .. "/bin/jdtls"
 
-          local java_test_pkg = mason_registry.get_package("java-test")
-          local java_test_path = java_test_pkg:get_install_path()
-
-          local java_dbg_pkg = mason_registry.get_package("java-debug-adapter")
-          local java_dbg_path = java_dbg_pkg:get_install_path()
-
-          local jar_patterns = {
-            java_dbg_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar",
-            java_test_path .. "/extension/server/*.jar"
-          }
-
           local bundles = {}
-          for _, jar_pattern in ipairs(jar_patterns) do
-            for _, bundle in ipairs(vim.split(vim.fn.glob(jar_pattern), '\n')) do
-              table.insert(bundles, bundle)
+
+          if mason_registry.has_package("java-test") and mason_registry.has_package("java-debug-adapter") then
+            -- jdtls tools configuration for debugging support
+            local java_test_pkg = mason_registry.get_package("java-test")
+            local java_test_path = java_test_pkg:get_install_path()
+
+            local java_dbg_pkg = mason_registry.get_package("java-debug-adapter")
+            local java_dbg_path = java_dbg_pkg:get_install_path()
+
+            local jar_patterns = {
+              java_dbg_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar",
+              java_test_path .. "/extension/server/*.jar"
+            }
+
+            for _, jar_pattern in ipairs(jar_patterns) do
+              for _, bundle in ipairs(vim.split(vim.fn.glob(jar_pattern), '\n')) do
+                table.insert(bundles, bundle)
+              end
             end
           end
 
           local extendedClientCapabilities = vim.tbl_deep_extend("force", require("jdtls").extendedClientCapabilities, {
-              resolveAdditionalTextEditsSupport = true,
-              progressReportProvider = false,
+            resolveAdditionalTextEditsSupport = true,
+            progressReportProvider = false,
           });
 
           local function print_test_results(items)
@@ -167,8 +171,8 @@ return {
                     signatureHelp = { enabled = true },
                     sources = {
                       organizeImports = {
-                        starThreshold = 9999;
-                        staticStarThreshold = 9999;
+                        starThreshold = 9999,
+                        staticStarThreshold = 9999,
                       },
                     },
                   },

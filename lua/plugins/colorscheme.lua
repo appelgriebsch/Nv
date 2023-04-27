@@ -14,8 +14,18 @@ return {
     opts = {
       colorscheme = function()
         local onedarkpro = require("onedarkpro")
-        onedarkpro.setup({
-          theme = "onedark_vivid",
+        local color = require("onedarkpro.helpers")
+        local colorscheme
+        if string.match(os.getenv("THEME"), "Light") then
+          colorscheme = "onelight"
+          vim.o.background = "light"
+        else
+          colorscheme = "onedark_vivid"
+          vim.o.background = "dark"
+        end
+        local colors = color.get_colors(colorscheme)
+        local opts = {
+          theme = colorscheme,
           styles = {
             strings = "NONE", -- Style that is applied to strings
             comments = "NONE", -- Style that is applied to comments
@@ -23,19 +33,20 @@ return {
             functions = "NONE", -- Style that is applied to functions
             variables = "NONE", -- Style that is applied to variables
           },
-          highlights = {
-            AlphaHeader = { fg = "${yellow}" },
-            AlphaButtons = { fg = "${white}" },
-            AlphaShortcut = { fg = "${red}" },
-            AlphaFooter = { fg = "${yellow}" },
-          },
           options = {
             bold = false, -- Use the themes opinionated bold styles?
             terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
             cursorline = false, -- Use cursorline highlighting?
+          },
+          highlights = {
+            AlphaHeader = { fg = colors.yellow },
+            AlphaButtons = { fg = colors.fg },
+            AlphaShortcut = { fg = colors.red },
+            AlphaFooter = { fg = colors.highlight },
           }
-        })
-        onedarkpro.load()
+        }
+        onedarkpro.setup(opts)
+        vim.cmd("colorscheme " .. colorscheme)
       end
     },
   },

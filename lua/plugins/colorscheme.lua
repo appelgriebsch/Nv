@@ -15,8 +15,8 @@ return {
       colorscheme = function()
         local onedarkpro = require("onedarkpro")
         local color = require("onedarkpro.helpers")
-        local colorscheme
-        if string.match(os.getenv("THEME"), "[L|l]ight") then
+        local colorscheme = os.getenv("NV_THEME")
+        if colorscheme ~= nil and string.match(colorscheme, "[L|l]ight") then
           colorscheme = "onelight"
           vim.o.background = "light"
         else

@@ -9,7 +9,7 @@ A [Neovim](https://neovim.io) setup based on [LazyVim](https://github.com/LazyVi
 3. Clone the git repo `git clone https://github.com/appelgriebsch/Nv ~/.config/nvim`
 4. Run `nvim` from a terminal
 
-Optionally: set an environment variable `THEME` with something either `light` or `dark`
+Optionally: set an environment variable `NV_THEME` with something either `light` or `dark`
 to have the `nvim` theme pickup accordingly (see lua/plugins/colorscheme.lua)
 
 ## Show case

@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "dap-float",
+    "httpResult",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

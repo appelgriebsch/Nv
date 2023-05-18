@@ -59,7 +59,7 @@ return {
             end
           end)
           local mason_registry = require("mason-registry")
-          local rust_tools_opts = vim.tbl_deep_extend("force", opts, {
+          local rust_tools_opts = {
             tools = {
               hover_actions = {
                 auto_focus = false,
@@ -70,7 +70,7 @@ return {
                 show_parameter_hints = true,
               },
             },
-            server = {
+            server = vim.tbl_deep_extend("force", opts, {
               settings = {
                 ["rust-analyzer"] = {
                   cargo = {
@@ -87,8 +87,8 @@ return {
                   },
                 }
               }
-            }
-          })
+            })
+          }
           if mason_registry.has_package("codelldb") then
             -- rust tools configuration for debugging support
             local codelldb = mason_registry.get_package("codelldb")

@@ -6,45 +6,48 @@ return {
   -- disable catppuccin
   { "catppuccin/nvim", name = "catppuccin", enabled = false },
 
-  { "olimorris/onedarkpro.nvim" },
+  { "projekt0n/github-nvim-theme" },
 
   -- Configure LazyVim to load color scheme
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = function()
-        local onedarkpro = require("onedarkpro")
-        local color = require("onedarkpro.helpers")
         local colorscheme = os.getenv("NV_THEME")
         if colorscheme ~= nil and string.match(colorscheme, "[L|l]ight") then
-          colorscheme = "onelight"
+          colorscheme = "github_light"
           vim.o.background = "light"
         else
-          colorscheme = "onedark_vivid"
+          colorscheme = "github_dark_dimmed"
           vim.o.background = "dark"
         end
-        local colors = color.get_colors(colorscheme)
+        local theme = require("github-theme");
         local opts = {
-          theme = colorscheme,
+          options = {
+            transparent = false, -- Disable setting background
+            terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+            dim_inactive = true,
+          },
           styles = {
-            strings = "NONE", -- Style that is applied to strings
             comments = "NONE", -- Style that is applied to comments
             keywords = "NONE", -- Style that is applied to keywords
-            functions = "NONE", -- Style that is applied to functions
-            variables = "NONE", -- Style that is applied to variables
           },
-          options = {
-            terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-            cursorline = false, -- Use cursorline highlighting?
+          darken = { -- Darken floating windows and sidebar-like windows
+            floats = true,
+            sidebars = {
+              enable = false,
+            },
           },
-          highlights = {
-            AlphaHeader = { fg = colors.yellow },
-            AlphaButtons = { fg = colors.fg },
-            AlphaShortcut = { fg = colors.red },
-            AlphaFooter = { fg = colors.highlight },
+          groups = {
+            all = {
+              AlphaHeader = { link = 'Title' },
+              AlphaButtons =  { link = 'Identifier' },
+              AlphaShortcut = { link = 'Keyword' },
+              AlphaFooter =  { link = 'Comment' },
+            }
           }
         }
-        onedarkpro.setup(opts)
+        theme.setup(opts)
         vim.cmd("colorscheme " .. colorscheme)
       end
     },

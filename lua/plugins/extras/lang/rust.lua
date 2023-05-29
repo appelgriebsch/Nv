@@ -23,7 +23,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "ron", "rust", "toml" })
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "ron", "rust", "toml" })
+      end
     end,
   },
 
@@ -31,7 +33,9 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "rust-analyzer", "taplo" })
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "rust-analyzer", "taplo" })
+      end
     end,
   },
 
@@ -39,7 +43,9 @@ return {
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "codelldb" })
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "codelldb" })
+      end
     end,
   },
 
@@ -96,7 +102,6 @@ return {
             local codelldb_path = extension_path .. 'adapter/codelldb'
             local liblldb_path = vim.fn.has "mac" == 1 and extension_path .. 'lldb/lib/liblldb.dylib' or
                 extension_path .. 'lldb/lib/liblldb.so'
-
             rust_tools_opts = vim.tbl_deep_extend("force", rust_tools_opts, {
               dap = {
                 adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
@@ -126,4 +131,22 @@ return {
       },
     },
   },
+  -- neotest setup
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = {
+      "rouge8/neotest-rust",
+    },
+    opts = {
+      adapters = {
+        ["neotest-rust"] = {
+          -- Here we can set options for neotest-rust, e.g.
+          -- args = { "-tags=integration" }
+          dap_adapter = "lldb"
+        },
+      },
+    },
+  },
+
 }

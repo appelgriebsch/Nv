@@ -4,7 +4,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "java" })
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "java" })
+      end
     end,
   },
 
@@ -12,7 +14,9 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "jdtls" })
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "jdtls" })
+      end
     end,
   },
 
@@ -20,7 +24,9 @@ return {
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "javatest", "javadbg" })
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "javatest", "javadbg" })
+      end
     end,
   },
 

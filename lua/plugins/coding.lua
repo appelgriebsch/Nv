@@ -35,36 +35,25 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      opts.ensure_installed = {
-        "bash",
-        "c",
-        "comment",
-        "diff",
-        "dockerfile",
-        "dot",
-        "git_rebase",
-        "gitattributes",
-        "gitcommit",
-        "gitignore",
-        "graphql",
-        "hcl",
-        "http",
-        "jq",
-        "lua",
-        "luadoc",
-        "luap",
-        "make",
-        "markdown",
-        "markdown_inline",
-        "mermaid",
-        "python",
-        "query",
-        "regex",
-        "sql",
-        "vim",
-        "vimdoc",
-        "yaml"
-      }
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, {
+          "comment",
+          "diff",
+          "dockerfile",
+          "dot",
+          "git_rebase",
+          "gitattributes",
+          "gitcommit",
+          "gitignore",
+          "graphql",
+          "hcl",
+          "http",
+          "jq",
+          "make",
+          "mermaid",
+          "sql"
+        })
+      end
     end
   },
 

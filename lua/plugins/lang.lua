@@ -70,13 +70,30 @@ return {
 
   -- core language specific extension modules
   { import = "lazyvim.plugins.extras.dap.nlua" },
+  { import = "lazyvim.plugins.extras.lang.clangd" },
   { import = "lazyvim.plugins.extras.lang.go" },
   { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "lazyvim.plugins.extras.lang.python" },
   { import = "lazyvim.plugins.extras.lang.rust" },
+  { import = "lazyvim.plugins.extras.lang.terraform" },
   { import = "lazyvim.plugins.extras.lang.typescript" },
 
   -- custom language specific extension modules
   { import = "plugins.extras.lang.java" },
   { import = "plugins.extras.lang.nodejs" },
+
+  -- overwrite Rust tools inlay hints
+  {
+    "simrat39/rust-tools.nvim",
+    opts = {
+      tools = {
+        inlay_hints = {
+          -- nvim >= 0.10 has native inlay hint support,
+          -- so we don't need the rust-tools specific implementation any longer
+          auto = not vim.fn.has('nvim-0.10')
+        }
+      }
+    }
+  },
 
 }

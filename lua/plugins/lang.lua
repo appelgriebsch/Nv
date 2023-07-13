@@ -68,12 +68,17 @@ return {
     end
   },
 
-  -- core language specific extension modules
+  -- debugger specific extension modules
   { import = "lazyvim.plugins.extras.dap.nlua" },
-  { import = "lazyvim.plugins.extras.lang.clangd" },
+
+  -- core language specific extension modules
+  -- { import = "lazyvim.plugins.extras.lang.clangd" },
+  { import = "lazyvim.plugins.extras.lang.docker" },
+  -- { import = "lazyvim.plugins.extras.lang.elixir" },
   { import = "lazyvim.plugins.extras.lang.go" },
   { import = "lazyvim.plugins.extras.lang.json" },
   { import = "lazyvim.plugins.extras.lang.python" },
+  -- { import = "lazyvim.plugins.extras.lang.ruby" },
   { import = "lazyvim.plugins.extras.lang.rust" },
   { import = "lazyvim.plugins.extras.lang.terraform" },
   { import = "lazyvim.plugins.extras.lang.typescript" },

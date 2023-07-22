@@ -127,7 +127,7 @@ return {
   {
     "dstein64/nvim-scrollview",
     event = "BufReadPre",
-    config = {
+    opts = {
       excluded_filetypes = { "alpha", "neo-tree" },
       current_only = true,
       winblend = 75,

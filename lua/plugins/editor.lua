@@ -7,7 +7,7 @@ return {
   {
     "famiu/bufdelete.nvim",
     -- stylua: ignore
-    config = function()
+    opts = function(_, opts)
       -- switches to Alpha dashboard when last buffer is closed
       local alpha_on_empty = vim.api.nvim_create_augroup("alpha_on_empty", { clear = true })
       vim.api.nvim_create_autocmd("User", {
@@ -127,7 +127,7 @@ return {
   {
     "akinsho/git-conflict.nvim",
     event = "BufReadPre",
-    config = true
+    opts = true
   },
 
   -- add symbols-outline
@@ -135,7 +135,7 @@ return {
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = function()
+    opts = function(_, opts)
       local icons = require("lazyvim.config").icons
       require("symbols-outline").setup({
         symbols = {
@@ -174,7 +174,7 @@ return {
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
-    config = true,
+    opts = true,
     keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
 

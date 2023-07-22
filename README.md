@@ -38,28 +38,35 @@ A [Neovim](https://neovim.io) setup based on [LazyVim](https://github.com/LazyVi
 
 ### Dashboard
 
-![Screenshot 2023-01-11 at 12 41 06](https://user-images.githubusercontent.com/6803419/211798031-c9e9a376-6f2b-4117-8b23-470a5fcd66b9.png)
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/4cbc6ce5-2b73-4d8c-8a65-e9469e0952ec)
 
 ### Telescope
 
-![Screenshot 2023-01-11 at 12 41 35](https://user-images.githubusercontent.com/6803419/211798083-a506a3c5-3a25-4a44-b181-f01d1d78be10.png)
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/5abcd2c4-1c21-4dc8-acc2-a57257f35034)
 
 ### Code editor
 
-![Screenshot 2023-01-11 at 12 42 08](https://user-images.githubusercontent.com/6803419/211798196-98021cdd-1b65-4ad2-b309-d0026dc103ee.png)
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/87922d98-eca6-4de4-955c-b3c884bfba36)
 
-### Symbols outline
+### Sidebar
 
-![Screenshot 2023-01-11 at 12 42 37](https://user-images.githubusercontent.com/6803419/211798225-de622980-aa61-4d85-8028-f9867b1e6db1.png)
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/b215d4a7-a123-4666-a36b-c132d5f04e17)
 
 ### Rust extension
 
-![Screenshot 2023-01-11 at 12 46 01](https://user-images.githubusercontent.com/6803419/211798813-0226d579-b3dc-417f-b95c-076a877a002c.png)
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/9f1fedd6-f461-43b8-bd12-052ead1eba23)
 
-![Screenshot 2023-01-11 at 12 46 43](https://user-images.githubusercontent.com/6803419/211798865-6e6b013b-41c2-4ddf-b791-2628a02149cc.png)
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/f1713bd7-7269-45e3-866b-3aeeb1cecb98)
 
 ### Debug Adapter support
 
-![Screenshot 2023-01-11 at 12 47 19](https://user-images.githubusercontent.com/6803419/211798911-2a49e27e-1363-4cab-9dcb-df366fb674b4.png)
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/0d103b08-d38e-4a31-994c-19776d6c173a)
 
-![Screenshot 2023-01-11 at 12 49 32](https://user-images.githubusercontent.com/6803419/211799158-b276f1d4-3174-48e0-bea0-255e28773c83.png)
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/1f8e03b8-6acb-4422-ad9b-fb3a9661588b)
+
+### Test support
+
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/afb5f415-764e-4a99-a9f6-1a147839d37d)
+
+![imagem](https://github.com/appelgriebsch/Nv/assets/6803419/07cd365f-6406-4c1d-8a79-b7c437c189ba)
+

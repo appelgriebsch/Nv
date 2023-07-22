@@ -12,6 +12,7 @@ A [Neovim](https://neovim.io) setup based on [LazyVim](https://github.com/LazyVi
   nv = {
     colorscheme = "onelight",   -- colorscheme setting for either onedark.nvim or github-theme
     copilot_support = false,    -- enable copilot extension
+    coverage_support = true,    -- enable coverage extension
     dap_support = true,         -- enable dap extension
     lang = {
       clangd = false,           -- enable clangd and cmake extension
@@ -26,6 +27,7 @@ A [Neovim](https://neovim.io) setup based on [LazyVim](https://github.com/LazyVi
       terraform = false,        -- enable terraform extension
       tex = false               -- enable tex extension
     },
+    rest_support = true,        -- enable rest.nvim extension
     test_support = true         -- enable test extension
   },
 ```

@@ -7,7 +7,7 @@ return {
   {
     "famiu/bufdelete.nvim",
     -- stylua: ignore
-    opts = function(_, opts)
+    config = function(_, opts)
       -- switches to Alpha dashboard when last buffer is closed
       local alpha_on_empty = vim.api.nvim_create_augroup("alpha_on_empty", { clear = true })
       vim.api.nvim_create_autocmd("User", {
@@ -18,7 +18,7 @@ return {
           local fallback_ft = vim.api.nvim_buf_get_option(event.buf, "filetype")
           local fallback_on_empty = fallback_name == "" and fallback_ft == ""
           if fallback_on_empty then
-            require("neo-tree").close_all()
+            vim.cmd([[Neotree close]])
             vim.cmd("Alpha")
             vim.cmd(event.buf .. "bwipeout")
           end
@@ -129,7 +129,7 @@ return {
   {
     "akinsho/git-conflict.nvim",
     event = "BufReadPre",
-    opts = true
+    opts = {},
   },
 
   -- add symbols-outline
@@ -176,7 +176,7 @@ return {
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
-    opts = true,
+    opts = {},
     keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
 

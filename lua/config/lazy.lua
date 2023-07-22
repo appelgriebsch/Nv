@@ -48,14 +48,12 @@ return function(opts)
       { import = "lazyvim.plugins.extras.lang.docker", enabled = opts.nv.lang.docker },
       { import = "lazyvim.plugins.extras.lang.elixir", enabled = opts.nv.lang.elixir },
       { import = "lazyvim.plugins.extras.lang.go", enabled = opts.nv.lang.go },
-      { import = "lazyvim.plugins.extras.lang.java", enabled = opts.nv.lang.java },
-      { import = "lazyvim.plugins.extras.lang.json", enabled = opts.nv.lang.nodejs },
+      -- { import = "lazyvim.plugins.extras.lang.java", enabled = opts.nv.lang.java },
       { import = "lazyvim.plugins.extras.lang.python", enabled = opts.nv.lang.python },
       { import = "lazyvim.plugins.extras.lang.ruby", enabled = opts.nv.lang.ruby },
       { import = "lazyvim.plugins.extras.lang.rust", enabled = opts.nv.lang.rust },
       { import = "lazyvim.plugins.extras.lang.terraform", enabled = opts.nv.lang.terraform },
       { import = "lazyvim.plugins.extras.lang.tex", enabled = opts.nv.lang.tex },
-      { import = "lazyvim.plugins.extras.lang.typescript", enabled = opts.nv.lang.nodejs },
       -- lazyvim test core extension modules
       { import = "lazyvim.plugins.extras.test.core", enabled = opts.nv.test_support },
       -- lazyvim UI extension modules
@@ -66,7 +64,12 @@ return function(opts)
       -- import/override with your plugins
       { import = "plugins" },
       -- custom language specific extension modules
+      { import = "plugins.extras.lang.java", enabled = opts.nv.lang.java }, -- to be removed once it's upstream
       { import = "plugins.extras.lang.nodejs", enabled = opts.nv.lang.nodejs },
+      -- lazyvim coverage extension modules
+      { import = "plugins.extras.test.coverage", enabled = opts.nv.lang.coverage_support },
+      -- lazyvim REST extension modules
+      { import = "plugins.extras.util.rest", enabled = opts.nv.lang.rest_support },
     },
     defaults = {
       -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

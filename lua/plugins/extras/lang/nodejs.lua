@@ -44,4 +44,8 @@ return {
     end,
   },
 
+  -- import additional language modules from upstream
+  { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "lazyvim.plugins.extras.lang.typescript" }
+
 }

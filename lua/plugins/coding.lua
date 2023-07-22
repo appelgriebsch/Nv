@@ -19,7 +19,7 @@ return {
   {
     "tiagovla/scope.nvim",
     event = "VeryLazy",
-    opts = true
+    opts = {},
   },
 
   -- tidy

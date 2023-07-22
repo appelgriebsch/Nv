@@ -1,25 +1,23 @@
 return {
 
-  -- git diff view
   {
-    "sindrets/diffview.nvim",
-    cmd = "DiffviewOpen",
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      defaults = {
+        ["<leader>h"] = { name = "+http" },
+      },
+    },
   },
-
-  {
-    "gennaro-tedesco/nvim-jqx",
-    ft = { "json", "yaml" },
-  },
-
-  {
-    "andythigpen/nvim-coverage",
-    event = "VeryLazy",
-    opts = true
-  },
-
   {
     "rest-nvim/rest.nvim",
-    ft = "http",
+    dependencies = {
+      {
+        "gennaro-tedesco/nvim-jqx",
+        ft = { "json", "yaml" },
+      },
+    },
+    ft = { "http" },
     opts = function(_, opts)
       require("rest-nvim").setup({
         -- Open request results in a horizontal split
@@ -57,9 +55,8 @@ return {
       })
     end,
     keys = {
-      { "<leader>cp", function() require("rest-nvim").run(true) end, desc = "Preview Request" },
-      { "<leader>ct", function() require("rest-nvim").run() end, desc = "Test Request" },
+      { "<leader>hp", function() require("rest-nvim").run(true) end, desc = "Preview Request" },
+      { "<leader>hr", function() require("rest-nvim").run() end, desc = "Run Request" },
     }
   },
-
 }

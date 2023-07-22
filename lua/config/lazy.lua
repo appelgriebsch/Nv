@@ -63,6 +63,8 @@ return function(opts)
       { import = "lazyvim.plugins.extras.util.project" },
       -- import/override with your plugins
       { import = "plugins" },
+      -- lazyvim codeium extension modules
+      { import = "plugins.extras.coding.codeium", enabled = opts.nv.codeium_support },
       -- custom language specific extension modules
       { import = "plugins.extras.lang.java", enabled = opts.nv.lang.java }, -- to be removed once it's upstream
       { import = "plugins.extras.lang.nodejs", enabled = opts.nv.lang.nodejs },

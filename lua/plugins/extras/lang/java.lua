@@ -11,7 +11,7 @@ return {
 
   -- Ensure java debugger and test packages are installed
   {
-    "mfussenegger/nvim-dap",
+    "williamboman/mason.nvim",
     optional = true,
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then

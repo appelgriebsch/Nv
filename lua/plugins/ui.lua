@@ -1,5 +1,14 @@
 return {
 
+  -- disable catppuccin
+  { "catppuccin/nvim", name = "catppuccin", enabled = false },
+
+  -- load github nvim theme
+  { "projekt0n/github-nvim-theme" },
+
+  -- load onedarkpro nvim theme
+  { "olimorris/onedarkpro.nvim" },
+
   -- notify customization
   {
     "rcarriga/nvim-notify",

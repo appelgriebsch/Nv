@@ -1,7 +1,6 @@
 local M = {}
 
 function M.setup(colorscheme)
-  local colorscheme = (string.match(colorscheme, "light") and "onelight" or "onedark_vivid")
   local theme = require("onedarkpro");
   local utils = require("onedarkpro.helpers")
   local colors = utils.get_colors(colorscheme)

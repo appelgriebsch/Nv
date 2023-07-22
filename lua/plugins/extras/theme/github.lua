@@ -1,7 +1,6 @@
 local M = {}
 
 function M.setup(colorscheme)
-  local colorscheme = (string.match(colorscheme, "light") and "github_light" or "github_dark_dimmed")
   local theme = require("github-theme");
   local opts = {
     options = {

@@ -48,8 +48,7 @@ return function(opts)
       { import = "lazyvim.plugins.extras.lang.docker", enabled = opts.nv.lang.docker },
       { import = "lazyvim.plugins.extras.lang.elixir", enabled = opts.nv.lang.elixir },
       { import = "lazyvim.plugins.extras.lang.go", enabled = opts.nv.lang.go },
-      -- { import = "lazyvim.plugins.extras.lang.java", enabled = opts.nv.lang.java },
-      { import = "plugins.extras.lang.java", enabled = opts.nv.lang.java }, -- to be removed once it's upstream
+      { import = "lazyvim.plugins.extras.lang.java", enabled = opts.nv.lang.java },
       { import = "lazyvim.plugins.extras.lang.python", enabled = opts.nv.lang.python },
       { import = "lazyvim.plugins.extras.lang.ruby", enabled = opts.nv.lang.ruby },
       { import = "lazyvim.plugins.extras.lang.rust", enabled = opts.nv.lang.rust },

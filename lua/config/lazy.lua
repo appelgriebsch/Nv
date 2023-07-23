@@ -49,6 +49,7 @@ return function(opts)
       { import = "lazyvim.plugins.extras.lang.elixir", enabled = opts.nv.lang.elixir },
       { import = "lazyvim.plugins.extras.lang.go", enabled = opts.nv.lang.go },
       -- { import = "lazyvim.plugins.extras.lang.java", enabled = opts.nv.lang.java },
+      { import = "plugins.extras.lang.java", enabled = opts.nv.lang.java }, -- to be removed once it's upstream
       { import = "lazyvim.plugins.extras.lang.python", enabled = opts.nv.lang.python },
       { import = "lazyvim.plugins.extras.lang.ruby", enabled = opts.nv.lang.ruby },
       { import = "lazyvim.plugins.extras.lang.rust", enabled = opts.nv.lang.rust },
@@ -66,8 +67,8 @@ return function(opts)
       -- lazyvim codeium extension modules
       { import = "plugins.extras.coding.codeium", enabled = opts.nv.codeium_support },
       -- custom language specific extension modules
-      { import = "plugins.extras.lang.java", enabled = opts.nv.lang.java }, -- to be removed once it's upstream
       { import = "plugins.extras.lang.nodejs", enabled = opts.nv.lang.nodejs },
+      { import = "plugins.extras.lang.yaml", enabled = opts.nv.lang.yaml },
       -- lazyvim coverage extension modules
       { import = "plugins.extras.test.coverage", enabled = opts.nv.lang.coverage_support },
       -- lazyvim REST extension modules

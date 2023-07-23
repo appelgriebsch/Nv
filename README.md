@@ -26,7 +26,8 @@ A [Neovim](https://neovim.io) setup based on [LazyVim](https://github.com/LazyVi
       ruby = false,             -- enable ruby extension
       rust = true,              -- enable rust extension
       terraform = false,        -- enable terraform extension
-      tex = false               -- enable tex extension
+      tex = false,              -- enable tex extension
+      yaml = true,              -- enable yaml extension
     },
     rest_support = true,        -- enable rest.nvim extension
     test_support = true         -- enable test extension

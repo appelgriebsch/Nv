@@ -11,13 +11,17 @@ return {
 
   -- Ensure java debugger and test packages are installed
   {
-    "williamboman/mason.nvim",
+    "mfussenegger/nvim-dap",
     optional = true,
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "java-test", "java-debug-adapter" })
-      end
-    end,
+    dependencies = {
+      {
+        "williamboman/mason.nvim",
+        opts = function(_, opts)
+          opts.ensure_installed = opts.ensure_installed or {}
+          vim.list_extend(opts.ensure_installed, { "java-test", "java-debug-adapter" })
+        end,
+      },
+    },
   },
 
   -- Set up lsp with mfussenegger/nvim-jdtls instead of nvim-lspconfig.
@@ -87,12 +91,19 @@ return {
                   vim.fs.joinpath(jdtls_cache_dir, "workspace"),
                 })
               end
-              local jdtls_config = {
+              local jdtls_base_config = {
                 on_attach = require("lazyvim.util").on_attach(function(client, buffer)
-                  -- custom keymaps
-                  vim.keymap.set("n", "<leader>tp", function() require("jdtls").pick_test({ bufnr = buffer }) end, { buffer = buffer, desc = "Pick Test" })
-                  require("jdtls").setup_dap({ hotcodereplace = "auto" })
-                  require("jdtls.dap").setup_dap_main_class_configs()
+                  if mason_registry.has_package("java-test") then
+                    -- custom keymaps for Java test runner (not yet compatible with neotest)
+                    vim.keymap.set("n", "<leader>tT", function() require("jdtls").pick_test({ bufnr = buffer }) end, { buffer = buffer, desc = "Run specific Test" })
+                    vim.keymap.set("n", "<leader>tt", function() require("jdtls").test_class({ bufnr = buffer }) end, { buffer = buffer, desc = "Run File" })
+                    vim.keymap.set("n", "<leader>tr", function() require("jdtls").test_nearest_method({ bufnr = buffer }) end, { buffer = buffer, desc = "Run nearest" })
+                  end
+                  if mason_registry.has_package("java-debug-adapter") then
+                    -- custom init for Java debugger
+                    require("jdtls").setup_dap({ hotcodereplace = "auto" })
+                    require("jdtls.dap").setup_dap_main_class_configs()
+                  end
                   require("jdtls.setup").add_commands()
                 end),
                 cmd = cmd,
@@ -101,7 +112,8 @@ return {
                   bundles = bundles,
                 }
               }
-              require("jdtls").start_or_attach(jdtls_config)
+              local jdtls_opts = require("lazyvim.util").opts("nvim-jdtls")
+              require("jdtls").start_or_attach(vim.tbl_deep_extend("force", jdtls_opts or {}, jdtls_base_config))
               require("which-key").register({ c = { x = { name = "Extract" } } }, { prefix = "<leader>" })
             end,
           })

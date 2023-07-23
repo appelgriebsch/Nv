@@ -24,7 +24,7 @@ return {
     end
   },
 
-  -- add rust to treesitter
+  -- add nodejs specific modules to treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -39,7 +39,7 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "css-lsp", "html-lsp", "stylelint-lsp", "typescript-language-server" })
+        vim.list_extend(opts.ensure_installed, { "css-lsp", "eslint-lsp", "html-lsp", "stylelint-lsp", "typescript-language-server" })
       end
     end,
   },

@@ -54,8 +54,7 @@ return function(opts)
       { import = "lazyvim.plugins.extras.lang.rust", enabled = opts.nv.lang.rust },
       { import = "lazyvim.plugins.extras.lang.terraform", enabled = opts.nv.lang.terraform },
       { import = "lazyvim.plugins.extras.lang.tex", enabled = opts.nv.lang.tex },
-      -- { import = "lazyvim.plugins.extras.lang.yaml", enabled = opts.nv.lang.yaml },
-      { import = "plugins.extras.lang.yaml", enabled = opts.nv.lang.yaml }, -- to be removed once it's upstream
+      { import = "lazyvim.plugins.extras.lang.yaml", enabled = opts.nv.lang.yaml },
       -- lazyvim test core extension modules
       { import = "lazyvim.plugins.extras.test.core", enabled = opts.nv.test_support },
       -- lazyvim UI extension modules

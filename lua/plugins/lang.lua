@@ -17,19 +17,16 @@ return {
   -- uncomment and add tools to ensure_installed below
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "marksman"
-      },
-      ui = {
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, { "lua-language-server", "marksman" })
+      opts.ui = {
         icons = {
           package_installed = "✓",
           package_pending = "",
-          package_uninstalled = "✗"
-        }
+          package_uninstalled = "✗",
+        },
       }
-    },
+    end,
   },
 
   -- disable the fancy UI for the debugger

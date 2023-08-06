@@ -31,8 +31,13 @@ return function(opts)
             else
               require("tokyonight").load() -- fallback to tokyo night if not otherwise specified
             end
-          end
-        }
+          end,
+          icons = {
+            kinds = {
+              Codeium = " "
+            }
+          },
+        },
       },
       -- lazyvim copilot extension modules
       { import = "lazyvim.plugins.extras.coding.copilot", enabled = opts.nv.copilot_support },

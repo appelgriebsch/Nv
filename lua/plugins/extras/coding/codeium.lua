@@ -1,14 +1,22 @@
 return {
 
+  -- copilot cmp source
   {
-    "Exafunction/codeium.vim",
-    event = "VeryLazy",
-    config = function(_, opts)
-      vim.keymap.set("i", "<C-a>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
-      vim.keymap.set("i", "<C-h>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
-      vim.keymap.set("i", "<C-l>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
-      vim.keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
-    end
+    "nvim-cmp",
+    dependencies = {
+      {
+        "jcdickinson/codeium.nvim",
+        opts = {},
+        config = function(_, opts)
+          require("codeium").setup(opts)
+        end,
+      },
+    },
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      table.insert(opts.sources, 1, { name = "codeium", group_index = 2 })
+      opts.sorting = opts.sorting or require("cmp.config.default")().sorting
+    end,
   },
 
 }

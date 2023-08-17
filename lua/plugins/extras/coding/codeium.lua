@@ -3,6 +3,7 @@ return {
   -- copilot cmp source
   {
     "nvim-cmp",
+    commit = "6c84bc75c64f778e9f1dcb798ed41c7fcb93b639", -- lock update (break codeium)
     dependencies = {
       {
         "jcdickinson/codeium.nvim",

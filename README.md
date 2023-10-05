@@ -12,7 +12,6 @@ A [Neovim](https://neovim.io) setup based on [LazyVim](https://github.com/LazyVi
   nv = {
     colorscheme = "onelight",   -- colorscheme setting for either onedark.nvim or github-theme
     copilot_support = false,    -- enable copilot extension
-    codeium_support = false,    -- enable codeium extension
     coverage_support = true,    -- enable coverage extension
     dap_support = true,         -- enable dap extension
     lang = {
@@ -21,12 +20,14 @@ A [Neovim](https://neovim.io) setup based on [LazyVim](https://github.com/LazyVi
       elixir = false,           -- enable elixir extension
       go = false,               -- enable go extension
       java = false,             -- enable java extension
-      nodejs = true,            -- enable nodejs (typescript, css, html, json) extension
+      nodejs = true,            -- enable nodejs bundle (typescript, css, html, json)
+      omnisharp = false,        -- enable omnisharp extension
       python = true,            -- enable python extension
       ruby = false,             -- enable ruby extension
       rust = true,              -- enable rust extension
       terraform = false,        -- enable terraform extension
       tex = false,              -- enable tex extension
+      typescript = false,       -- enable typescript extension
       yaml = true,              -- enable yaml extension
     },
     rest_support = true,        -- enable rest.nvim extension

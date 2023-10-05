@@ -46,7 +46,7 @@ return function(opts)
       -- lazyvim dap core extension modules
       { import = "lazyvim.plugins.extras.dap.core", enabled = opts.nv.dap_support },
       -- debugger specific extension modules
-      { import = "lazyvim.plugins.extras.dap.nlua", enabled = opts.nv.lang.lua },
+      { import = "lazyvim.plugins.extras.dap.nlua", enabled = opts.nv.dap_support },
       -- core language specific extension modules
       { import = "lazyvim.plugins.extras.lang.clangd", enabled = opts.nv.lang.clangd },
       { import = "lazyvim.plugins.extras.lang.cmake", enabled = opts.nv.lang.clangd },
@@ -54,6 +54,7 @@ return function(opts)
       { import = "lazyvim.plugins.extras.lang.elixir", enabled = opts.nv.lang.elixir },
       { import = "lazyvim.plugins.extras.lang.go", enabled = opts.nv.lang.go },
       { import = "lazyvim.plugins.extras.lang.java", enabled = opts.nv.lang.java },
+      { import = "lazyvim.plugins.extras.lang.omnisharp", enabled = opts.nv.lang.omnisharp },
       { import = "lazyvim.plugins.extras.lang.python", enabled = opts.nv.lang.python },
       { import = "lazyvim.plugins.extras.lang.ruby", enabled = opts.nv.lang.ruby },
       { import = "lazyvim.plugins.extras.lang.rust", enabled = opts.nv.lang.rust },
@@ -69,14 +70,12 @@ return function(opts)
       { import = "lazyvim.plugins.extras.util.project" },
       -- import/override with your plugins
       { import = "plugins" },
-      -- lazyvim codeium extension modules
-      { import = "plugins.extras.coding.codeium", enabled = opts.nv.codeium_support },
       -- custom language specific extension modules
       { import = "plugins.extras.lang.nodejs", enabled = opts.nv.lang.nodejs },
       -- lazyvim coverage extension modules
-      { import = "plugins.extras.test.coverage", enabled = opts.nv.lang.coverage_support },
+      { import = "plugins.extras.test.coverage", enabled = opts.nv.coverage_support },
       -- lazyvim REST extension modules
-      { import = "plugins.extras.util.rest", enabled = opts.nv.lang.rest_support },
+      { import = "plugins.extras.util.rest", enabled = opts.nv.rest_support },
     },
     defaults = {
       -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

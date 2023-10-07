@@ -4,7 +4,7 @@ return {
   {
     "Exafunction/codeium.nvim",
     cmd = "Codeium",
-    build = ":Codeium auth",
+    build = ":Codeium Auth",
     opts = {},
   },
   -- codeium cmp source
@@ -13,10 +13,6 @@ return {
     dependencies = {
       {
         "Exafunction/codeium.nvim",
-        opts = {},
-        config = function(_, opts)
-          require("codeium").setup(opts)
-        end,
       },
     },
     ---@param opts cmp.ConfigSchema

@@ -39,6 +39,8 @@ return function(opts)
           },
         },
       },
+      -- lazyvim codeium extension modules
+      { import = "lazyvim.plugins.extras.coding.codeium", enabled = opts.nv.codeium_support },
       -- lazyvim copilot extension modules
       { import = "lazyvim.plugins.extras.coding.copilot", enabled = opts.nv.copilot_support },
       -- lazyvim yanky extension modules
@@ -70,8 +72,6 @@ return function(opts)
       { import = "lazyvim.plugins.extras.util.project" },
       -- import/override with your plugins
       { import = "plugins" },
-      -- lazyvim codeium extension modules
-      { import = "plugins.extras.coding.codeium", enabled = opts.nv.codeium_support },
       -- custom language specific extension modules
       { import = "plugins.extras.lang.nodejs", enabled = opts.nv.lang.nodejs },
       -- lazyvim coverage extension modules

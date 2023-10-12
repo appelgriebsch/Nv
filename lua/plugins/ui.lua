@@ -59,85 +59,12 @@ return {
     }
   },
 
-  -- statusline
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      local function lsp_name(msg)
-        msg = msg or "Inactive"
-        local buf_clients = vim.lsp.get_active_clients()
-        if next(buf_clients) == nil then
-          if type(msg) == "boolean" or #msg == 0 then
-            return "Inactive"
-          end
-          return msg
-        end
-        local buf_client_names = {}
-
-        for _, client in pairs(buf_clients) do
-          if client.name ~= "null-ls" then
-            table.insert(buf_client_names, client.name)
-          end
-        end
-
-        return table.concat(buf_client_names, ", ")
-      end
-
-      opts.sections = vim.tbl_deep_extend("force", opts.sections, {
-        lualine_y = {
-          {
-            lsp_name,
-            icon = "",
-            color = { gui = "none" },
-          },
-          { "progress", separator = " ", padding = { left = 1, right = 0 } },
-          { "location", padding = { left = 0, right = 1 } },
-        },
-      })
-    end
-  },
-
-  -- dashboard
-  {
-    "goolord/alpha-nvim",
-    opts = function(_, dashboard)
-      dashboard.config.opts.setup = function()
-        local alpha_start_group = vim.api.nvim_create_augroup("AlphaStart", { clear = true })
-        vim.api.nvim_create_autocmd("TabNewEntered", {
-          callback = function()
-            require("alpha").start()
-          end,
-          group = alpha_start_group,
-        })
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "AlphaReady",
-          desc = "disable tabline for alpha",
-          callback = function()
-            vim.opt.showtabline = 0
-          end,
-        })
-        vim.api.nvim_create_autocmd("BufUnload", {
-          buffer = 0,
-          desc = "enable tabline after alpha",
-          callback = function()
-            vim.opt.showtabline = 2
-          end,
-        })
-      end
-      local button = dashboard.button("m", " " .. " Mason", ":Mason<CR>")
-      button.opts.hl = "AlphaButtons"
-      button.opts.hl_shortcut = "AlphaShortcut"
-      table.insert(dashboard.section.buttons.val, 9, button)
-    end
-  },
-
   -- scrollbar for Neovim
   {
     "dstein64/nvim-scrollview",
     event = "BufReadPre",
     opts = {
-      excluded_filetypes = { "alpha", "neo-tree" },
+      excluded_filetypes = { "dashboard", "neo-tree" },
       current_only = true,
       winblend = 75,
     }

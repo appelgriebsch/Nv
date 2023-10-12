@@ -20,10 +20,10 @@ function M.setup(colorscheme)
     },
     groups = {
       all = {
-        AlphaHeader = { link = 'Title' },
-        AlphaButtons = { link = 'Identifier' },
-        AlphaShortcut = { link = 'Keyword' },
-        AlphaFooter = { link = 'Comment' },
+        DashboardHeader = { link = 'Title' },
+        DashboardIcon = { link = 'Identifier' },
+        DashboardKey = { link = 'Keyword' },
+        DashboardFooter = { link = 'Comment' },
       }
     }
   }

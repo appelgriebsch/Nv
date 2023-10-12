@@ -18,10 +18,10 @@ function M.setup(colorscheme)
       cursorline = false, -- Use cursorline highlighting?
     },
     highlights = {
-      AlphaHeader = { fg = colors.yellow },
-      AlphaButtons = { fg = colors.fg },
-      AlphaShortcut = { fg = colors.red },
-      AlphaFooter = { fg = colors.highlight },
+      DashboardHeader = { fg = colors.yellow },
+      DashboardIcon = { fg = colors.green },
+      DashboardKey = { fg = colors.red },
+      DashboardFooter = { fg = colors.highlight },
     }
   }
   theme.setup(opts)

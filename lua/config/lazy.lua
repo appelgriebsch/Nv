@@ -32,11 +32,6 @@ return function(opts)
               require("tokyonight").load() -- fallback to tokyo night if not otherwise specified
             end
           end,
-          icons = {
-            kinds = {
-              Codeium = " "
-            }
-          },
         },
       },
       -- lazyvim codeium extension modules
@@ -68,6 +63,8 @@ return function(opts)
       -- lazyvim UI extension modules
       { import = "lazyvim.plugins.extras.ui.edgy" },
       { import = "lazyvim.plugins.extras.ui.mini-animate" },
+      -- lazyvim aerial extension modules                                                                                                              │
+      { import = "lazyvim.plugins.extras.editor.aerial" },
       -- lazyvim project extension modules
       { import = "lazyvim.plugins.extras.util.project" },
       -- import/override with your plugins

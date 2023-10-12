@@ -35,3 +35,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>bdelete!<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+-- show dashboard when new tab page is opened
+vim.api.nvim_create_autocmd('TabNewEntered', { command = 'Dashboard' })

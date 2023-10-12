@@ -1,0 +1,24 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.dap.nlua",
+    "lazyvim.plugins.extras.editor.aerial",
+    "lazyvim.plugins.extras.test.core",
+    "lazyvim.plugins.extras.ui.edgy",
+    "lazyvim.plugins.extras.ui.mini-animate",
+    "lazyvim.plugins.extras.util.project",
+    "plugins.extras.editor.bufdelete",
+    "plugins.extras.editor.git-blame",
+    "plugins.extras.editor.git-conflict",
+    "plugins.extras.editor.scope",
+    "plugins.extras.editor.tidy",
+    "plugins.extras.editor.undo-mode",
+    "plugins.extras.test.coverage",
+    "plugins.extras.ui.onedarkpro-theme"
+  ],
+  "news": {
+    "NEWS.md": "2123"
+  },
+  "version": 2
+}

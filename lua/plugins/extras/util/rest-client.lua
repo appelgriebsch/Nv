@@ -9,6 +9,7 @@ return {
       },
     },
   },
+
   {
     "rest-nvim/rest.nvim",
     dependencies = {
@@ -18,8 +19,7 @@ return {
       },
     },
     ft = { "http" },
-    config = function(_, opts)
-      require("rest-nvim").setup({
+    opts = {
         -- Open request results in a horizontal split
         result_split_horizontal = true,
         -- Keep the http file buffer above|left when split horizontal|vertical
@@ -52,8 +52,7 @@ return {
         env_file = '.env',
         custom_dynamic_variables = {},
         yank_dry_run = true,
-      })
-    end,
+    },
     keys = {
       { "<leader>hp", function() require("rest-nvim").run(true) end, desc = "Preview Request" },
       { "<leader>hr", function() require("rest-nvim").run() end, desc = "Run Request" },

@@ -1,13 +1,23 @@
 return {
-
   -- disable catppuccin
   { "catppuccin/nvim", name = "catppuccin", enabled = false },
 
-  -- load github nvim theme
-  { "projekt0n/github-nvim-theme" },
-
-  -- load onedarkpro nvim theme
-  { "olimorris/onedarkpro.nvim" },
+  -- configure tokyonight theme
+  {
+    "folke/tokyonight.nvim",
+    optional = true,
+    dependencies = {
+      -- toggle theme
+      {
+        "eliseshaffer/darklight.nvim",
+        opts = {
+          mode = "colorscheme",
+          dark_mode_colorscheme = "tokyonight-storm",
+          light_mode_colorscheme = "tokyonight-day"
+        },
+      }
+    }
+  },
 
   -- notify customization
   {
@@ -25,8 +35,6 @@ return {
     opts = {
       options = {
         numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-        close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-        right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
         max_name_length = 30,
         max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
         show_buffer_icons = true,
@@ -64,16 +72,77 @@ return {
     "dstein64/nvim-scrollview",
     event = "BufReadPre",
     opts = {
-      excluded_filetypes = { "dashboard", "neo-tree" },
+      excluded_filetypes = { "alpha", "dashboard", "neo-tree" },
       current_only = true,
       winblend = 75,
     }
   },
 
-  -- git diff view
+  -- theme toggle
   {
-    "sindrets/diffview.nvim",
-    cmd = "DiffviewOpen",
+    "eliseshaffer/darklight.nvim",
+    event = "VimEnter",
+    config = function(_, opts)
+      require("darklight").setup(opts)
+      local colorscheme = opts.dark_mode_colorscheme
+      if vim.g.NV_UI_MODE ~= "light" then
+        colorscheme = opts.light_mode_colorscheme
+      end
+      vim.cmd("colorscheme " .. colorscheme)
+    end,
+    keys = {
+      { "<leader>um",
+        function()
+          if vim.o.background ~= "light" then
+            vim.g.NV_UI_MODE = "dark"
+          else
+            vim.g.NV_UI_MODE = "light"
+          end
+          vim.cmd([[DarkLightSwitch]])
+        end,
+        desc = "Toggle Dark/Light mode"
+      },
+    }
   },
 
+  -- dashboard
+  {
+    "glepnir/dashboard-nvim",
+    optional = true,
+    opts = function(_, opts)
+      -- show dashboard when new tab page is opened
+      vim.api.nvim_create_autocmd('TabNewEntered', { command = 'Dashboard' })
+    end
+  },
+
+  -- alpha
+  {
+    "goolord/alpha-nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.config.opts.setup = function()
+        local alpha_start_group = vim.api.nvim_create_augroup("AlphaStart", { clear = true })
+        vim.api.nvim_create_autocmd("TabNewEntered", {
+          callback = function()
+            require("alpha").start()
+          end,
+          group = alpha_start_group,
+        })
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "AlphaReady",
+          desc = "disable tabline for alpha",
+          callback = function()
+            vim.opt.showtabline = 0
+          end,
+        })
+        vim.api.nvim_create_autocmd("BufUnload", {
+          buffer = 0,
+          desc = "enable tabline after alpha",
+          callback = function()
+            vim.opt.showtabline = 2
+          end,
+        })
+      end
+    end
+  },
 }

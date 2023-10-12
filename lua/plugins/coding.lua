@@ -1,9 +1,7 @@
 return {
-
   -- extend auto completion
   {
     "hrsh7th/nvim-cmp",
-    ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
       opts.mapping = vim.tbl_deep_extend("force", opts.mapping, {
@@ -11,22 +9,6 @@ return {
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
       })
     end,
-  },
-
-  -- scopes
-  {
-    "tiagovla/scope.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-
-  -- tidy
-  {
-    "mcauley-penney/tidy.nvim",
-    event = "VeryLazy",
-    opts = {
-      filetype_exclude = { "markdown", "diff" },
-    }
   },
 
   -- treesitter
@@ -54,5 +36,4 @@ return {
       end
     end
   },
-
 }

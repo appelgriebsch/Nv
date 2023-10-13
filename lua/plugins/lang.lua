@@ -1,9 +1,7 @@
 return {
-
   -- uncomment and add lsp servers with their config to servers below
   {
     "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
     opts = {
       inlay_hints = { enabled = vim.fn.has('nvim-0.10') },
       ---@type lspconfig.options
@@ -45,6 +43,7 @@ return {
   -- dap integration
   {
     "mfussenegger/nvim-dap",
+    optional = true,
     keys = {
       { "<leader>de",
         function() require("dap.ui.widgets").centered_float(require("dap.ui.widgets").expression, { border = "none" }) end,
@@ -156,5 +155,4 @@ return {
       },
     },
   },
-
 }

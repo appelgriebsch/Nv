@@ -107,7 +107,7 @@ return {
 
   -- dashboard
   {
-    "glepnir/dashboard-nvim",
+    "nvimdev/dashboard-nvim",
     optional = true,
     opts = function(_, opts)
       -- show dashboard when new tab page is opened

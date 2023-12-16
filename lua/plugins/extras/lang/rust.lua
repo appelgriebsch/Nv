@@ -48,6 +48,10 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^3", -- Recommended
     ft = { "rust" },
+    keys = {
+      { "<leader>cR", function() vim.cmd.RustLsp("codeAction") end, desc = "Code Action" },
+      { "<leader>dr", function() vim.cmd.RustLsp("debuggables") end, desc = "Rust debuggables" },
+    },
     opts = {
       server = {
         settings = {
@@ -77,19 +81,9 @@ return {
       }
     },
     config = function(_, opts)
-      vim.g.rustaceanvim = vim.tbl_deep_extend("force", {
-        -- LSP configuration
-        server = {
-          on_attach = function(client, bufnr)
-            -- register which-key mappings
-            local wk = require("which-key")
-            wk.register({
-              ["<leader>cR"] = { function() vim.cmd.RustLsp("codeAction") end, "Code Action" },
-              ["<leader>dr"] = { function() vim.cmd.RustLsp("debuggables") end, "Rust debuggables" },
-            }, { mode = "n", buffer = bufnr })
-          end,
-        },
-      }, opts or {})
+      vim.g.rustaceanvim = vim.tbl_deep_extend("force",
+        {},
+        opts or {})
     end
   },
 

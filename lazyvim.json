@@ -15,7 +15,8 @@
     "plugins.extras.editor.tidy",
     "plugins.extras.editor.undo-mode",
     "plugins.extras.test.coverage",
-    "plugins.extras.ui.onedarkpro-theme"
+    "plugins.extras.ui.onedarkpro-theme",
+    "plugins.extras.util.gitui"
   ],
   "news": {
     "NEWS.md": "2123"

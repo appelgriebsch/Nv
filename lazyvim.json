@@ -16,7 +16,10 @@
     "plugins.extras.editor.undo-mode",
     "plugins.extras.test.coverage",
     "plugins.extras.ui.onedarkpro-theme",
-    "plugins.extras.util.gitui"
+    "plugins.extras.util.diffview",
+    "plugins.extras.util.gitui",
+    "plugins.extras.util.octo",
+    "plugins.extras.util.rest-client"
   ],
   "news": {
     "NEWS.md": "2123"

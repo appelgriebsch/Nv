@@ -1,5 +1,14 @@
 return {
 
+  -- Ensure jq tool is installed
+  {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, { "jq" })
+    end,
+  },
+
   {
     "folke/which-key.nvim",
     optional = true,
@@ -12,46 +21,15 @@ return {
 
   {
     "rest-nvim/rest.nvim",
-    dependencies = {
-      {
-        "gennaro-tedesco/nvim-jqx",
-        ft = { "json", "yaml" },
-      },
-    },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     ft = { "http" },
     opts = {
-        -- Open request results in a horizontal split
+        -- check default config for more information
+        -- https://github.com/rest-nvim/rest.nvim/blob/main/lua/rest-nvim/config/init.lua
         result_split_horizontal = true,
-        -- Keep the http file buffer above|left when split horizontal|vertical
-        result_split_in_place = false,
-        -- Skip SSL verification, useful for unknown certificates
-        skip_ssl_verification = false,
-        -- Encode URL before making request
-        encode_url = true,
-        -- Highlight request on run
-        highlight = {
-          enabled = true,
-          timeout = 150,
-        },
         result = {
-          -- toggle showing URL, HTTP info, headers at top the of result window
-          show_url = true,
-          show_http_info = true,
-          show_headers = true,
-          -- executables or functions for formatting response body [optional]
-          -- set them to false if you want to disable them
-          formatters = {
-            json = "jq",
-            html = function(body)
-              return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-            end
-          },
+          show_curl_command = false,
         },
-        -- Jump to request line on run
-        jump_to_request = false,
-        env_file = '.env',
-        custom_dynamic_variables = {},
-        yank_dry_run = true,
     },
     keys = {
       { "<leader>hp", function() require("rest-nvim").run(true) end, desc = "Preview Request" },

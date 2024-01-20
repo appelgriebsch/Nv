@@ -3,6 +3,16 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      diagnostics = {
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = require("lazyvim.config").icons.diagnostics.Error,
+            [vim.diagnostic.severity.WARN] = require("lazyvim.config").icons.diagnostics.Warn,
+            [vim.diagnostic.severity.HINT] = require("lazyvim.config").icons.diagnostics.Hint,
+            [vim.diagnostic.severity.INFO] = require("lazyvim.config").icons.diagnostics.Info,
+          },
+        },
+      },
       inlay_hints = { enabled = vim.fn.has('nvim-0.10') },
       ---@type lspconfig.options
       servers = {
@@ -45,19 +55,27 @@ return {
     "mfussenegger/nvim-dap",
     optional = true,
     keys = {
-      { "<leader>de",
+      {
+        "<leader>de",
         function() require("dap.ui.widgets").centered_float(require("dap.ui.widgets").expression, { border = "none" }) end,
         desc = "Eval",
-        mode = { "n", "v" } },
-      { "<leader>dwf",
+        mode = { "n", "v" }
+      },
+      {
+        "<leader>dwf",
         function() require("dap.ui.widgets").centered_float(require("dap.ui.widgets").frames, { border = "none" }) end,
-        desc = "Frames" },
-      { "<leader>dws",
+        desc = "Frames"
+      },
+      {
+        "<leader>dws",
         function() require("dap.ui.widgets").centered_float(require("dap.ui.widgets").scopes, { border = "none" }) end,
-        desc = "Scopes" },
-      { "<leader>dwt",
+        desc = "Scopes"
+      },
+      {
+        "<leader>dwt",
         function() require("dap.ui.widgets").centered_float(require("dap.ui.widgets").threads, { border = "none" }) end,
-        desc = "Threads" },
+        desc = "Threads"
+      },
     },
     opts = function(_, opts)
       require("dap").defaults.fallback.terminal_win_cmd = "enew | set filetype=dap-terminal"

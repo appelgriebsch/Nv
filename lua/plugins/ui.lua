@@ -91,7 +91,7 @@ return {
       vim.cmd("colorscheme " .. colorscheme)
     end,
     keys = {
-      { "<leader>um",
+      { "<leader>ub",
         function()
           if vim.o.background ~= "light" then
             vim.g.NV_UI_MODE = "dark"
@@ -100,7 +100,7 @@ return {
           end
           vim.cmd([[DarkLightSwitch]])
         end,
-        desc = "Toggle Dark/Light mode"
+        desc = "Toggle Background"
       },
     }
   },

@@ -18,8 +18,7 @@
     "plugins.extras.ui.onedarkpro-theme",
     "plugins.extras.util.diffview",
     "plugins.extras.util.gitui",
-    "plugins.extras.util.octo",
-    "plugins.extras.util.rest-client"
+    "plugins.extras.util.octo"
   ],
   "news": {
     "NEWS.md": "2123"

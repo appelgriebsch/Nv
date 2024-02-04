@@ -26,9 +26,8 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "css", "html", "javascript", "jsdoc", "scss" })
-      end
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, { "css", "html", "javascript", "jsdoc", "scss" })
     end,
   },
 
@@ -36,10 +35,10 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed,
-          { "css-lsp", "eslint-lsp", "html-lsp", "stylelint-lsp", "typescript-language-server" })
-      end
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed,
+        { "css-lsp", "eslint-lsp", "firefox-debug-adapter",
+          "html-lsp", "standardjs", "stylelint-lsp", "ts-standard", "typescript-language-server" })
     end,
   },
 

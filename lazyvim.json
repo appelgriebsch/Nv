@@ -5,23 +5,25 @@
     "lazyvim.plugins.extras.dap.nlua",
     "lazyvim.plugins.extras.editor.aerial",
     "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.ui.mini-animate",
+    "lazyvim.plugins.extras.util.gitui",
     "lazyvim.plugins.extras.util.project",
     "plugins.extras.editor.git-blame",
     "plugins.extras.editor.git-conflict",
     "plugins.extras.editor.scope",
     "plugins.extras.editor.tidy",
     "plugins.extras.editor.undo-mode",
+    "plugins.extras.lang.nodejs",
     "plugins.extras.test.coverage",
     "plugins.extras.ui.onedarkpro-theme",
     "plugins.extras.util.diffview",
-    "plugins.extras.util.gitui",
     "plugins.extras.util.octo"
   ],
   "news": {
     "NEWS.md": "2123"
   },
-  "version": 2
+  "version": 3
 }

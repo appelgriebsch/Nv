@@ -10,8 +10,11 @@ vim.g.loaded_perl_provider = 0
 -- disable some fanzy UI stuff when run in Neovide
 if vim.g.neovide then
   vim.g.neovide_cursor_animation_length = 0
-  vim.g.neovide_floating_blur = 0
-  vim.g.neovide_floating_opacity = 90
+  vim.g.neovide_cursor_antialiasing = true
+  vim.g.neovide_floating_shadow = false
+  vim.g.neovide_hide_mouse_when_typing = true
+  vim.g.neovide_remember_window_size = true
+
   vim.opt.guifont = 'MonaspiceKr Nerd Font Mono:h13'
   vim.cmd[[nnoremap <ScrollWheelRight> <Nop>]]
   vim.cmd[[nnoremap <ScrollWheelLeft> <Nop>]]

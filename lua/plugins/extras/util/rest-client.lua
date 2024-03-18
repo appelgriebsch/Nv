@@ -1,11 +1,20 @@
 return {
 
+  -- Add http to treesitter.
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, { "lua", "xml", "http", "json", "graphql" })
+    end,
+  },
+
   -- Ensure jq tool is installed
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "jq" })
+      vim.list_extend(opts.ensure_installed, { "jq", "prettier" })
     end,
   },
 
@@ -20,20 +29,27 @@ return {
   },
 
   {
-    "rest-nvim/rest.nvim",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
-    ft = { "http" },
+    "vhyrro/luarocks.nvim",
     opts = {
-        -- check default config for more information
-        -- https://github.com/rest-nvim/rest.nvim/blob/main/lua/rest-nvim/config/init.lua
-        result_split_horizontal = true,
-        result = {
-          show_curl_command = false,
-        },
+      rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }
+    },
+  },
+
+  {
+    "rest-nvim/rest.nvim",
+    ft = "http",
+    dependencies = { "luarocks.nvim" },
+    opts = {
     },
     keys = {
-      { "<leader>hp", function() require("rest-nvim").run(true) end, desc = "Preview Request" },
-      { "<leader>hr", function() require("rest-nvim").run() end, desc = "Run Request" },
-    }
+      { "<leader>hr", "<CMD>Rest run<CR>",                                              desc = "Run Request" },
+      { "<leader>he", function() require("telescope").extensions.rest.select_env() end, desc = "Select environment" }
+    },
+    config = function(_, opts)
+      require("rest-nvim").setup(opts)
+      require("lazyvim.util").on_load("telescope.nvim", function()
+        require("telescope").load_extension("rest")
+      end)
+    end,
   },
 }

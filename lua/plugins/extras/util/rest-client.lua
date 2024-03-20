@@ -30,6 +30,7 @@ return {
 
   {
     "vhyrro/luarocks.nvim",
+    branch = "go-away-python",
     opts = {
       rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }
     },

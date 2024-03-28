@@ -1,12 +1,11 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.test.core",
+    "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.nlua",
-    "lazyvim.plugins.extras.editor.aerial",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.yaml",
-    "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.ui.mini-animate",
     "lazyvim.plugins.extras.util.gitui",
@@ -20,10 +19,11 @@
     "plugins.extras.test.coverage",
     "plugins.extras.ui.onedarkpro-theme",
     "plugins.extras.util.diffview",
-    "plugins.extras.util.octo"
+    "plugins.extras.util.octo",
+    "lazyvim.plugins.extras.editor.aerial"
   ],
   "news": {
-    "NEWS.md": "2123"
+    "NEWS.md": "2850"
   },
   "version": 3
 }

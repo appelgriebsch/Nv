@@ -39,6 +39,7 @@ return {
       { "nvim-java/nvim-java-core" },
       { "nvim-java/nvim-java-test" },
       { "nvim-java/nvim-java-dap" },
+      { "nvim-java/nvim-java-refactor" },
       {
         "neovim/nvim-lspconfig",
         opts = {

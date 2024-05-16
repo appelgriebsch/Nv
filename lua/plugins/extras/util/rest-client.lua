@@ -30,16 +30,18 @@ return {
 
   {
     "vhyrro/luarocks.nvim",
-    branch = "go-away-python",
+    priority = 1000,
+    name = "luarocks",
     opts = {
       rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }
     },
+    config = true,
   },
 
   {
     "rest-nvim/rest.nvim",
     ft = "http",
-    dependencies = { "luarocks.nvim" },
+    dependencies = { "luarocks" },
     opts = {
     },
     keys = {

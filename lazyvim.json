@@ -1,8 +1,8 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.native_snippets",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.editor.navic",
     "lazyvim.plugins.extras.editor.trouble-v3",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.yaml",
@@ -23,7 +23,7 @@
     "plugins.extras.util.octo"
   ],
   "news": {
-    "NEWS.md": "3314"
+    "NEWS.md": "4578"
   },
   "version": 3
 }

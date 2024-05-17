@@ -43,6 +43,17 @@ return {
     ft = "http",
     dependencies = { "luarocks" },
     opts = {
+      result = {
+        split = {
+          horizontal = true,
+          in_place = true,
+        },
+        behavior = {
+          formatters = {
+            html = function(body) return body, { found = false, name = "tidy" } end
+          }
+        }
+      }
     },
     keys = {
       { "<leader>hr", "<CMD>Rest run<CR>",                                              desc = "Run Request" },

@@ -10,6 +10,7 @@
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.ui.mini-animate",
     "lazyvim.plugins.extras.util.gitui",
+    "lazyvim.plugins.extras.util.mini-hipatterns",
     "lazyvim.plugins.extras.util.project",
     "plugins.extras.editor.git-blame",
     "plugins.extras.editor.git-conflict",
@@ -23,7 +24,7 @@
     "plugins.extras.util.octo"
   ],
   "news": {
-    "NEWS.md": "4944"
+    "NEWS.md": "4964"
   },
   "version": 4
 }

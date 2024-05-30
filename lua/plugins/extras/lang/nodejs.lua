@@ -37,7 +37,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
       vim.list_extend(opts.ensure_installed,
-        { "css-lsp", "eslint-lsp", "html-lsp", "standardjs", "stylelint-lsp", "ts-standard", "typescript-language-server" })
+        { "css-lsp", "eslint-lsp", "html-lsp", "standardjs", "stylelint-lsp" })
     end,
   },
 

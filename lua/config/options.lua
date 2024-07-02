@@ -11,9 +11,12 @@ vim.g.loaded_perl_provider = 0
 if vim.g.neovide then
   vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_cursor_antialiasing = true
+  vim.g.neovide_floating_blur_amount_x = 0.0
+  vim.g.neovide_floating_blur_amount_y = 0.0
   vim.g.neovide_floating_shadow = false
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_remember_window_size = true
+  vim.g.neovide_window_blurred = true
 
   vim.opt.guifont = 'MonaspiceKr Nerd Font Mono:h13'
   vim.cmd[[nnoremap <ScrollWheelRight> <Nop>]]

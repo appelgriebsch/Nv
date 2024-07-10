@@ -15,6 +15,7 @@
     "lazyvim.plugins.extras.util.mini-hipatterns",
     "lazyvim.plugins.extras.util.octo",
     "lazyvim.plugins.extras.util.project",
+    "lazyvim.plugins.extras.util.rest",
     "plugins.extras.editor.git-blame",
     "plugins.extras.editor.git-conflict",
     "plugins.extras.editor.scope",
@@ -23,8 +24,7 @@
     "plugins.extras.lang.nodejs",
     "plugins.extras.test.coverage",
     "plugins.extras.ui.onedarkpro-theme",
-    "plugins.extras.util.diffview",
-    "plugins.extras.util.octo"
+    "plugins.extras.util.diffview"
   ],
   "news": {
     "NEWS.md": "6077"

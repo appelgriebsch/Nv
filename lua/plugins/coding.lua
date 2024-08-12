@@ -29,6 +29,7 @@ return {
           "hcl",
           "http",
           "jq",
+          "just",
           "make",
           "mermaid",
           "sql"

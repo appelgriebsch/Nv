@@ -4,6 +4,7 @@
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.refactoring",
+    "lazyvim.plugins.extras.editor.telescope",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.toml",
@@ -27,7 +28,7 @@
     "plugins.extras.util.diffview"
   ],
   "news": {
-    "NEWS.md": "6520"
+    "NEWS.md": "10960"
   },
-  "version": 6
+  "version": 7
 }

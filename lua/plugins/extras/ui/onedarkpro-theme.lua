@@ -28,9 +28,6 @@ return {
         local utils = require("onedarkpro.helpers")
         local colors = utils.get_colors()
         local opts = {
-          colors = {
-            onelight = { bg = "#f3f3f3" }
-          },
           styles = {
             strings = "NONE", -- Style that is applied to strings
             comments = "NONE", -- Style that is applied to comments

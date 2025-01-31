@@ -4,7 +4,6 @@
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.refactoring",
-    "lazyvim.plugins.extras.editor.telescope",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.toml",

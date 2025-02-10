@@ -8,7 +8,8 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 -- then you need to set the option below.
-vim.g.lazyvim_picker = "telescope"
+vim.g.lazyvim_picker = "snacks"
+vim.g.lazyvim_explorer = "snacks"
 
 vim.cmd[[nnoremap <ScrollWheelRight> <Nop>]]
 vim.cmd[[nnoremap <ScrollWheelLeft> <Nop>]]

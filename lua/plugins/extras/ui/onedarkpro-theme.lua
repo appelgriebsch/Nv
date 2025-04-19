@@ -5,6 +5,9 @@ return {
   -- disable github nvim theme
   { "projekt0n/github-nvim-theme", enabled = false },
 
+  -- disable ayu theme
+  { "Shatur/neovim-ayu", enabled = false },
+
   -- toggle theme
   {
     "eliseshaffer/darklight.nvim",

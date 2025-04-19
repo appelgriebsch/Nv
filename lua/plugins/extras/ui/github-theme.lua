@@ -5,6 +5,9 @@ return {
   -- disable onedarkpro nvim theme
   { "olimorris/onedarkpro.nvim", enabled = false },
 
+  -- disable ayu theme
+  { "Shatur/neovim-ayu", enabled = false },
+
   -- toggle theme
   {
     "eliseshaffer/darklight.nvim",

@@ -27,6 +27,13 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = function()
+        local theme = require("ayu");
+        local opts = {
+          overrides = {
+            Comment = { italic = false },
+          },
+        }
+        theme.setup(opts)
       end
     }
   }

@@ -26,16 +26,6 @@ return {
   -- disable the fancy UI for the debugger
   { "rcarriga/nvim-dap-ui", enabled = false },
 
-  -- which key integration
-  {
-    "folke/which-key.nvim",
-    opts = {
-      spec = {
-        { "<leader>dw", group = "widgets" },
-      }
-    }
-  },
-
   -- dap integration
   {
     "mfussenegger/nvim-dap",

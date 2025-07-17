@@ -29,9 +29,27 @@ return {
       colorscheme = function()
         local theme = require("ayu");
         local opts = {
-          overrides = {
-            Comment = { italic = false },
-          },
+          overrides = function()
+            if vim.o.background == 'dark' then
+              local colors = require('ayu.colors')
+              colors.generate(true) -- Pass `true` to enable mirage
+              return {
+                AlphaHeader = { fg = colors.accent },
+                AlphaShortcut = { fg = colors.accent },
+                AlphaFooter = { fg = colors.fg },
+                Comment = { italic = false }
+              }
+            else
+              local colors = require('ayu.colors')
+              colors.generate() -- Pass `true` to enable mirage
+              return {
+                AlphaHeader = { fg = colors.accent },
+                AlphaShortcut = { fg = colors.accent },
+                AlphaFooter = { fg = colors.fg },
+                Comment = { italic = false }
+              }
+            end
+          end
         }
         theme.setup(opts)
       end

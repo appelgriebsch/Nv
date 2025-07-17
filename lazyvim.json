@@ -10,8 +10,8 @@
     "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.test.core",
+    "lazyvim.plugins.extras.ui.alpha",
     "lazyvim.plugins.extras.ui.edgy",
-    "lazyvim.plugins.extras.ui.mini-animate",
     "lazyvim.plugins.extras.util.gitui",
     "lazyvim.plugins.extras.util.mini-hipatterns",
     "lazyvim.plugins.extras.util.octo",
@@ -24,7 +24,7 @@
     "plugins.extras.editor.undo-mode",
     "plugins.extras.lang.nodejs",
     "plugins.extras.test.coverage",
-    "plugins.extras.ui.onedarkpro-theme",
+    "plugins.extras.ui.ayu-theme",
     "plugins.extras.util.diffview"
   ],
   "install_version": 7,

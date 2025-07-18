@@ -7,17 +7,11 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     opts = {
-      defaults = {
+      defaults = require('telescope.themes').get_ivy({
         prompt_prefix = " ",
         selection_caret = " ",
-        layout_strategy = "vertical",
         layout_config = {
-          vertical = {
-            preview_cutoff = 0.2,
-            preview_height = 0.4
-          },
-          height = 0.9,
-          width = 0.9
+          height = 0.33,
         },
         mappings = {
           i = {
@@ -49,7 +43,7 @@ return {
             end
           }
         },
-      },
+      }),
     },
   },
 }

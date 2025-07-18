@@ -37,4 +37,15 @@ return {
       end
     end
   },
+
+  -- use copilot binary instead of nodejs script
+  {
+    "zbirenbaum/copilot.lua",
+    optional = true,
+    opts = {
+      server = {
+        type = "binary"
+      }
+    }
+  },
 }
